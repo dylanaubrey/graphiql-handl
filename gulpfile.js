@@ -17,7 +17,7 @@ gulp.task('clean', () => {
 gulp.task('main', () => {
   const tsProject = ts.createProject('tsconfig.json', { declaration: true, module: 'commonjs' });
 
-  const transpiled = gulp.src(['src/**/*.ts'])
+  const transpiled = gulp.src(['src/**/*.{ts,tsx}'])
     .pipe(sourcemaps.init())
     .pipe(tsProject())
     .pipe(babel())
@@ -34,7 +34,7 @@ gulp.task('main', () => {
 gulp.task('module', () => {
   const tsProject = ts.createProject('tsconfig.json');
 
-  return gulp.src(['src/**/*.ts'])
+  return gulp.src(['src/**/*.{ts,tsx}'])
     .pipe(sourcemaps.init())
     .pipe(tsProject())
     .pipe(babel())
@@ -46,7 +46,7 @@ gulp.task('module', () => {
 gulp.task('browser', () => {
   const tsProject = ts.createProject('tsconfig.json');
 
-  return gulp.src(['src/**/*.ts'])
+  return gulp.src(['src/**/*.{ts,tsx}'])
     .pipe(sourcemaps.init())
     .pipe(tsProject())
     .pipe(babel())
