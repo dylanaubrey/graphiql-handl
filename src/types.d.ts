@@ -9,9 +9,9 @@ export interface FetcherArgs {
 
 export interface GraphiQLHandlArgs {
   headers?: ObjectMap;
-  introspection: IntrospectionQuery;
-  props: GraphiQLProps;
+  propsPath?: string;
   rootDir: string;
+  schemaPath?: string;
   url: string;
 }
 
@@ -19,11 +19,6 @@ export interface GraphiQLProps {
   defaultQuery?: string;
   editorTheme?: string;
   fetcher?: (value: FetcherArgs) => Promise<HandlClientRequestResult>
-  getDefaultFieldNames?: (value: GraphQLType) => string[];
-  onEditOperationName?: () => void;
-  onEditQuery?: (value: string) => void;
-  onEditVariables?: (value: string) => void;
-  onToggleDocs?: (value: boolean) => void;
   operationName?: string;
   query?: string;
   response?: ObjectMap;
