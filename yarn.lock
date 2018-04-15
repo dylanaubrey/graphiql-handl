@@ -786,6 +786,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@emmetio/extract-abbreviation@^0.1.4":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@emmetio/extract-abbreviation/-/extract-abbreviation-0.1.6.tgz#e4a9856c1057f0aff7d443b8536477c243abe28c"
+
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@gulp-sourcemaps/identity-map/-/identity-map-1.0.1.tgz#cfa23bc5840f9104ce32a65e74db7e7a974bbee1"
@@ -902,11 +906,22 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/react-redux@^5.0.16":
+  version "5.0.16"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-5.0.16.tgz#46f1b2043abd2b4364a857100abf5e5a6ef94bf0"
+  dependencies:
+    "@types/react" "*"
+    redux "^3.6.0"
+
 "@types/react@*", "@types/react@^16.3.1":
   version "16.3.8"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.8.tgz#40c7e4eca3f48783e4c4ccee26fc7f5a5a476d84"
   dependencies:
     csstype "^2.0.0"
+
+"@types/redux-actions@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@types/redux-actions/-/redux-actions-2.2.4.tgz#7794077a91df223c9dccc035a2d3e9b88d8bc18e"
 
 "@types/serve-static@*":
   version "1.13.1"
@@ -3013,6 +3028,10 @@ dot-prop@^4.1.1:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
+
 double-ended-queue@^2.1.0-0:
   version "2.1.0-0"
   resolved "https://registry.yarnpkg.com/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz#103d3527fd31528f40188130c841efdd78264e5c"
@@ -4822,7 +4841,7 @@ interpret@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
 
-invariant@^2.2.0, invariant@^2.2.2:
+invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -5405,6 +5424,10 @@ json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
+jsonc-parser@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-1.0.3.tgz#1d53d7160e401a783dbceabaad82473f80e6ad7e"
+
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
@@ -5710,6 +5733,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash-es@^4.17.4, lodash-es@^4.17.5, lodash-es@^4.2.1:
+  version "4.17.8"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.8.tgz#6fa8c8c5d337481df0bdf1c0d899d42473121e45"
+
 lodash-webpack-plugin@^0.11.4:
   version "0.11.4"
   resolved "https://registry.yarnpkg.com/lodash-webpack-plugin/-/lodash-webpack-plugin-0.11.4.tgz#6c3ecba3d4b8d24b53940b63542715c5ed3c4ac5"
@@ -5827,7 +5854,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.6.1:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -7539,6 +7566,17 @@ react-dom@^16.3.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-redux@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
+  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    invariant "^2.0.0"
+    lodash "^4.17.5"
+    lodash-es "^4.17.5"
+    loose-envify "^1.1.0"
+    prop-types "^15.6.0"
+
 react@^16.3.0:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
@@ -7703,6 +7741,32 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
+
+reduce-reducers@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
+
+redux-actions@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.3.0.tgz#4e9967d86594b8c235bab6e08960b5c185f296d3"
+  dependencies:
+    invariant "^2.2.1"
+    lodash "^4.13.1"
+    lodash-es "^4.17.4"
+    reduce-reducers "^0.1.0"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
+
+redux@^3.6.0, redux@^3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+  dependencies:
+    lodash "^4.2.1"
+    lodash-es "^4.2.1"
+    loose-envify "^1.1.0"
+    symbol-observable "^1.0.3"
 
 regenerate-unicode-properties@^5.1.1:
   version "5.1.3"
@@ -8855,6 +8919,10 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
+symbol-observable@^1.0.3:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+
 syntax-error@^1.1.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/syntax-error/-/syntax-error-1.4.0.tgz#2d9d4ff5c064acb711594a3e3b95054ad51d907c"
@@ -9161,6 +9229,19 @@ type-is@~1.6.15, type-is@~1.6.16:
 typedarray@^0.0.6, typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript-styled-plugin@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/typescript-styled-plugin/-/typescript-styled-plugin-0.6.0.tgz#ede4826907d88b84dbdf6ec0052ce862f5d3bd72"
+  dependencies:
+    typescript-template-language-service-decorator "^1.2.0"
+    vscode-css-languageservice "^3.0.5"
+    vscode-emmet-helper "1.1.36"
+    vscode-languageserver-types "^3.6.0-next.1"
+
+typescript-template-language-service-decorator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/typescript-template-language-service-decorator/-/typescript-template-language-service-decorator-1.2.0.tgz#6d5b20b2b0f394a055390d901a4c5f273e3754ab"
 
 typescript@^2.8.1:
   version "2.8.1"
@@ -9546,6 +9627,29 @@ vm-browserify@0.0.4, vm-browserify@~0.0.1:
 void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+
+vscode-css-languageservice@^3.0.5:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/vscode-css-languageservice/-/vscode-css-languageservice-3.0.8.tgz#dc27a2f6eefd191bc603be6b9c0a59232a4c2b9f"
+  dependencies:
+    vscode-languageserver-types "^3.6.1"
+    vscode-nls "^3.2.1"
+
+vscode-emmet-helper@1.1.36:
+  version "1.1.36"
+  resolved "https://registry.yarnpkg.com/vscode-emmet-helper/-/vscode-emmet-helper-1.1.36.tgz#537cbf91041a3d426f6f24dd9834550a26e61685"
+  dependencies:
+    "@emmetio/extract-abbreviation" "^0.1.4"
+    jsonc-parser "^1.0.0"
+    vscode-languageserver-types "^3.6.0-next.1"
+
+vscode-languageserver-types@^3.6.0-next.1, vscode-languageserver-types@^3.6.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-types/-/vscode-languageserver-types-3.7.1.tgz#4835d1c1811f91dd5c92e9446e5b29edd2216969"
+
+vscode-nls@^3.2.1:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/vscode-nls/-/vscode-nls-3.2.2.tgz#3817eca5b985c2393de325197cf4e15eb2aa5350"
 
 watchpack@^1.4.0:
   version "1.5.0"

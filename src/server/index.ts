@@ -38,5 +38,6 @@ export default async function startServer(args: GraphiQLHandlArgs): Promise<void
   server.listen(port, () => {
     shell.echo(`>>>>>>>>> server is listening to port ${port}`);
     shell.echo(`>>>>>>>>> http://localhost:${port}`);
+    shell.echo(">>>>>>>>> waiting for webpack...");
   });
 }

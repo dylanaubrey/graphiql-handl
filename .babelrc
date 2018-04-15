@@ -60,6 +60,9 @@
     "**/*.d.ts"
   ],
   "plugins": [
+    ["babel-plugin-styled-components", {
+      "displayName": true
+    }],
     "lodash",
     "@babel/plugin-proposal-decorators"
   ]
