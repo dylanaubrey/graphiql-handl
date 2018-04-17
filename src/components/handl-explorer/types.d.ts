@@ -1,7 +1,4 @@
 export interface HandlExplorerProps {
-
-}
-
-export interface HandlExplorerState {
   explorerOpen: boolean;
+  toolbarClickHandler: (ev: React.MouseEvent<HTMLDivElement>) => void;
 }

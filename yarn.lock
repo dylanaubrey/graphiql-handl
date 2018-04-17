@@ -1948,27 +1948,23 @@ cache-base@^1.0.1:
     union-value "^1.0.0"
     unset-value "^1.0.0"
 
-cacheability@0.0.61:
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/cacheability/-/cacheability-0.0.61.tgz#86750ad3aa344dc31d1b40bd11b58af25be6cfc2"
-  dependencies:
-    isomorphic-fetch "^2.2.1"
-    lodash "^4.17.4"
+cacheability@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/cacheability/-/cacheability-0.1.1.tgz#93ce1929aa5b935ed29fa6bc6425aeaf48c90940"
 
 cached-path-relative@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cached-path-relative/-/cached-path-relative-1.0.1.tgz#d09c4b52800aa4c078e2dd81a869aac90d2e54e7"
 
-cachemap@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/cachemap/-/cachemap-0.1.6.tgz#35d88d0e871634a853fb4a0c724ed869ff537298"
+cachemap@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/cachemap/-/cachemap-0.1.8.tgz#83741c4af94dbf41b2938342c5df14a459204f52"
   dependencies:
     "@babel/polyfill" "^7.0.0-beta.44"
-    cacheability "0.0.61"
+    cacheability "^0.1.1"
     fakeredis "^2.0.0"
     idb "^2.1.1"
     iso-logger "0.0.12"
-    lodash "^4.17.5"
     md5 "^2.2.1"
     object-sizeof "^1.2.0"
     promise-worker "^1.1.1"
@@ -4398,19 +4394,18 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
-handl@^0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/handl/-/handl-0.1.11.tgz#c11ece46c082a04124381253d6c52eba85f789ac"
+handl@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/handl/-/handl-0.1.13.tgz#888e21f02741fce5bf6061253d75a3f586073cba"
   dependencies:
     "@babel/polyfill" "^7.0.0-beta.42"
-    cacheability "0.0.61"
-    cachemap "^0.1.6"
+    cacheability "^0.1.1"
+    cachemap "^0.1.8"
     defer-promise "^1.0.1"
     eventemitter3 "^3.0.1"
     iso-logger "0.0.12"
     isomorphic-fetch "^2.2.1"
     iterall "^1.1.3"
-    lodash "^4.17.4"
     md5 "^2.2.1"
     promise-worker "^1.1.1"
     uuid "^3.2.1"

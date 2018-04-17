@@ -1,5 +1,5 @@
 import { buildClientSchema } from "graphql";
-import { ClientHandl } from "handl";
+import { ClientHandl, HandlClientRequestResultData } from "handl";
 import * as React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
@@ -7,7 +7,7 @@ import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { GraphiQLHandl } from "../components/graphiql-handl";
 import handlEventListeners from "../handl-event-listeners";
-import rootReducer from "./reducers";
+import rootReducer from "../reducers";
 import { FetcherArgs, PreLoadedState } from "../types";
 
 declare global {
@@ -22,8 +22,9 @@ declare global {
   const store = createStore(rootReducer, applyMiddleware(thunk));
   handlEventListeners(handl, store.dispatch);
 
-  props.fetcher = ({ operationName, query, variables }: FetcherArgs) => {
-    return handl.request(query, { operationName, variables });
+  props.fetcher = async ({ operationName, query, variables }: FetcherArgs) => {
+    const result = await handl.request(query, { operationName, variables }) as HandlClientRequestResultData;
+    return { ...result, cacheMetadata: ClientHandl.dehydrateCacheMetadata(result.cacheMetadata) };
   };
 
   props.schema = buildClientSchema(introspection);

@@ -15,17 +15,6 @@ export interface GraphiQLHandlArgs {
   url: string;
 }
 
-export interface GraphiQLProps {
-  defaultQuery?: string;
-  editorTheme?: string;
-  fetcher?: (value: FetcherArgs) => Promise<HandlClientRequestResult>
-  operationName?: string;
-  query?: string;
-  response?: ObjectMap;
-  schema?: GraphQLSchema;
-  variables?: string;
-}
-
 export interface ObjectMap {
   [key: string]: any;
 }
