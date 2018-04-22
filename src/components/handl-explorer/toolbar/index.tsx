@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Icon } from "../icon";
+import Icon from "../icon";
+import InfoBar from "../info-bar";
 import { ToolbarProps } from "./types";
 
 const StyledToolbar = styled.div`
@@ -25,9 +26,10 @@ const StyledToolbarIcon = styled.div`
 
 const StyledToolbarMain = styled.div`
   height: 30px;
+  padding: 5px 10px;
 `;
 
-export class Toolbar extends React.Component {
+export default class Toolbar extends React.Component {
   private static _renderToolbarExpandIcon() {
     return (
       <StyledToolbarIcon>
@@ -51,7 +53,7 @@ export class Toolbar extends React.Component {
       <StyledToolbar onClick={this.props.onClick}>
         {this.props.explorerOpen && Toolbar._renderToolbarCloseIcon()}
         <StyledToolbarMain>
-
+          <InfoBar />
         </StyledToolbarMain>
         {!this.props.explorerOpen && Toolbar._renderToolbarExpandIcon()}
       </StyledToolbar>

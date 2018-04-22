@@ -1,14 +1,7 @@
-import { Action, handleActions } from "redux-actions";
+import { AnyAction, combineReducers } from "redux";
+import activeRequest from "./active-request";
+import { CombineReducersResult } from "./types";
 
-import {
-  CACHE_ENTRY_ADDED,
-} from "../constants/actions";
-
-import { ObjectMap } from "../types";
-
-export default handleActions({
-  [CACHE_ENTRY_ADDED]: (state: ObjectMap = {}, action: Action<{ data: any }>): ObjectMap => {
-    console.log(action.payload);
-    return state;
-  },
-}, {});
+export default combineReducers<CombineReducersResult, AnyAction>({
+  activeRequest,
+});

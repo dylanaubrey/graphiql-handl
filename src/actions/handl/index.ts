@@ -1,4 +1,4 @@
-import { createActions } from "redux-actions";
+import { Action, ActionFunctionAny, createActions } from "redux-actions";
 
 import {
   CACHE_ENTRY_ADDED,
@@ -16,7 +16,7 @@ export const {
   requestExecuted,
   requestTimed,
   subscriptionExecuted,
-} = createActions({
+}: { [key: string]: ActionFunctionAny<Action<{ data: any }>>;  } = createActions({
   [CACHE_ENTRY_ADDED]: (data) => ({ data }),
   [FETCH_EXECUTED]: (data) => ({ data }),
   [PARTIAL_COMPILED]: (data) => ({ data }),

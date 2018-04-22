@@ -10,7 +10,7 @@ const StyledSVG = styled<SVGProps & React.SVGProps<SVGSVGElement>, "svg">("svg")
   width: ${({ size }) => size === "lg" ? "40px" : size === "md" ? "30px" : "20px"};
 `;
 
-export class Icon extends React.Component {
+export default class Icon extends React.Component {
   public props: IconProps;
 
   public render(): React.ReactNode {

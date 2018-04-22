@@ -10,6 +10,7 @@ export default function htmlTemplate(preLoadedState: PreLoadedState): string {
         <title>GraphiQLHandl</title>
         <style>
           body {
+            font-family: 'Consolas', 'Inconsolata', 'Droid Sans Mono', 'Monaco', monospace;
             height: 100%;
             margin: 0;
             width: 100%;
