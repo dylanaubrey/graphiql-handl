@@ -1,4 +1,4 @@
-import { get } from "lodash";
+import { cloneDeep, get } from "lodash";
 import { Action, handleActions } from "redux-actions";
 import { ActiveRequestState, HandlPayload } from "../../types";
 
@@ -20,7 +20,7 @@ export default handleActions({
     const data = get(action, ["payload", "data"], null);
     if (!data) return state;
     const { cache, handlID, key, operation, operationName } = data as HandlPayload;
-    if (state.handlID !== handlID) state = initialState;
+    if (state.handlID !== handlID) state = cloneDeep(initialState);
     const stateCache = state[cache];
     stateCache.push(key);
 
@@ -33,4 +33,4 @@ export default handleActions({
 
     return { ...state, ...newState };
   },
-}, initialState);
+}, cloneDeep(initialState));

@@ -4,59 +4,52 @@ import Icon from "../icon";
 import InfoBar from "../info-bar";
 import { ToolbarProps } from "./types";
 
-const StyledToolbar = styled.div`
-  background-color: #222;
-  border: 1px solid #111;
+const Container = styled.div`
+  background-color: #111;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
   cursor: pointer;
-  transition: background-color 0.2s;
+`;
+
+const ToolbarMain = styled.div`
+  height: 30px;
+  padding: 5px;
+`;
+
+const ToolbarIcon = styled<
+  { explorerOpen: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
+>("div")`
+  margin-bottom: ${({ explorerOpen }) => explorerOpen ? "15px" : "0"};
+  transition: margin 0.3s;
+
+  > svg {
+    color: #ddd;
+    display: block;
+    margin: 0 auto;
+    transition: color 0.2s;
+  }
 
   &:focus,
   &:hover {
-    background-color: #333;
+    > svg {
+      color: #fff;
+    }
   }
-`;
-
-const StyledToolbarIcon = styled.div`
-  > svg {
-    color: #fff;
-    display: block;
-    margin: 0 auto;
-  }
-`;
-
-const StyledToolbarMain = styled.div`
-  height: 30px;
-  padding: 5px 10px;
 `;
 
 export default class Toolbar extends React.Component {
-  private static _renderToolbarExpandIcon() {
-    return (
-      <StyledToolbarIcon>
-        <Icon symbol="chevronDown" />
-      </StyledToolbarIcon>
-    );
-  }
-
-  private static _renderToolbarCloseIcon() {
-    return (
-      <StyledToolbarIcon>
-        <Icon symbol="chevronUp" />
-      </StyledToolbarIcon>
-    );
-  }
-
   public props: ToolbarProps;
 
   public render(): React.ReactNode {
     return (
-      <StyledToolbar onClick={this.props.onClick}>
-        {this.props.explorerOpen && Toolbar._renderToolbarCloseIcon()}
-        <StyledToolbarMain>
+      <Container>
+        <ToolbarMain>
           <InfoBar />
-        </StyledToolbarMain>
-        {!this.props.explorerOpen && Toolbar._renderToolbarExpandIcon()}
-      </StyledToolbar>
+        </ToolbarMain>
+        <ToolbarIcon explorerOpen={this.props.explorerOpen} onClick={this.props.onClick}>
+          <Icon symbol={this.props.explorerOpen ? "chevronUp" : "chevronDown"} />
+        </ToolbarIcon>
+      </Container>
     );
   }
 }
