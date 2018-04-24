@@ -1,36 +1,67 @@
 import { cloneDeep, get } from "lodash";
-import { Action, handleActions } from "redux-actions";
-import { ActiveRequestState, HandlPayload } from "../../types";
+import { Action } from "redux-actions";
+
+import {
+  ActionPayloads,
+  ActiveRequestState,
+  CacheEntryAddedPayload,
+  RequestTimedPayload,
+} from "../../types";
 
 import {
   CACHE_ENTRY_ADDED,
+  REQUEST_TIMED,
 } from "../../constants/actions";
 
 const initialState: ActiveRequestState = {
   dataEntities: [],
+  duration: 0,
   handlID: "",
   operation: "query",
   operationName: undefined,
   queryPaths: [],
   responses: [],
+  startTime: 0,
 };
 
-export default handleActions({
-  [CACHE_ENTRY_ADDED]: (state: ActiveRequestState, action: Action<{ data: HandlPayload }>): ActiveRequestState => {
-    const data = get(action, ["payload", "data"], null);
-    if (!data) return state;
-    const { cache, handlID, key, operation, operationName } = data as HandlPayload;
-    if (state.handlID !== handlID) state = cloneDeep(initialState);
-    const stateCache = state[cache];
-    stateCache.push(key);
+export default function activeRequest(
+  state: ActiveRequestState = initialState,
+  action: Action<{ data: ActionPayloads }>,
+): ActiveRequestState {
+  switch (action.type) {
+    case CACHE_ENTRY_ADDED: {
+      const data = get(action, ["payload", "data"], null) as CacheEntryAddedPayload;
+      if (!data) return state;
+      const { cache, handlID, key, operation, operationName } = data;
+      if (state.handlID !== handlID) state = cloneDeep(initialState);
+      const stateCache = state[cache];
+      stateCache.push(key);
 
-    const newState = {
-      handlID,
-      operation,
-      operationName,
-      [cache]: stateCache,
-    };
+      const newState = {
+        handlID,
+        operation,
+        operationName,
+        [cache]: stateCache,
+      };
 
-    return { ...state, ...newState };
-  },
-}, cloneDeep(initialState));
+      return { ...state, ...newState };
+    }
+    case REQUEST_TIMED: {
+      const data = get(action, ["payload", "data"], null) as RequestTimedPayload;
+      if (!data) return state;
+      const { duration, handlID, startTime } = data;
+      if (state.handlID !== handlID) state = cloneDeep(initialState);
+
+      const newState = {
+        duration,
+        handlID,
+        startTime,
+      };
+
+      return { ...state, ...newState };
+    }
+    default: {
+      return state;
+    }
+  }
+}

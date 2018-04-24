@@ -1,13 +1,27 @@
 import { ExecutionResult, GraphQLSchema, GraphQLType } from "graphql";
 import { HandlClientRequestResult } from "handl";
 
+export type ActionPayloads = CacheEntryAddedPayload | RequestTimedPayload;
+
 export interface ActiveRequestState {
   dataEntities: string[];
+  duration: number;
+  handlID: string;
   operation: OperationTypes;
   operationName?: string;
   queryPaths: string[];
-  handlID: string;
   responses: string[];
+  startTime: number;
+}
+
+export interface CacheEntryAddedPayload {
+  cache: CacheTypes;
+  key: string;
+  operation: OperationTypes;
+  operationName: string;
+  requestID: string;
+  value: any;
+  [key: string]: any;
 }
 
 export type CacheTypes = "responses" | "queryPaths" | "dataEntities";
@@ -26,16 +40,6 @@ export interface GraphiQLHandlArgs {
   url: string;
 }
 
-export interface HandlPayload {
-  cache: CacheTypes;
-  key: string;
-  operation: OperationTypes;
-  operationName: string;
-  requestID: string;
-  value: any;
-  [key: string]: any;
-}
-
 export interface ObjectMap {
   [key: string]: any;
 }
@@ -50,8 +54,17 @@ export interface PreLoadedState {
 }
 
 export interface ReduxState {
-  activeRequest: ActiveRequestState,
-  dataEntities: [],
-  queryPaths: [],
-  response: [],
+  activeRequest: ActiveRequestState;
+  dataEntities: [];
+  queryPaths: [];
+  response: [];
+}
+
+export interface RequestTimedPayload {
+  duration: number;
+  endTime: number;
+  handlID: string;
+  operation: OperationTypes;
+  operationName: string;
+  startTime: number;
 }

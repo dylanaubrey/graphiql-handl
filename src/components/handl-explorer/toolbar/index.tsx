@@ -8,7 +8,6 @@ const Container = styled.div`
   background-color: #111;
   border-bottom: 1px solid #000;
   border-top: 1px solid #000;
-  cursor: pointer;
 `;
 
 const ToolbarMain = styled.div`
@@ -19,6 +18,7 @@ const ToolbarMain = styled.div`
 const ToolbarIcon = styled<
   { explorerOpen: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
 >("div")`
+  cursor: pointer;
   margin-bottom: ${({ explorerOpen }) => explorerOpen ? "15px" : "0"};
   transition: margin 0.3s;
 

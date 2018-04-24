@@ -1,18 +1,26 @@
 import { get } from "lodash";
-import { Action, handleActions } from "redux-actions";
-import { HandlPayload, ObjectMap } from "../../types";
+import { Action } from "redux-actions";
+import { ActionPayloads, CacheEntryAddedPayload, ObjectMap } from "../../types";
 
 import {
   CACHE_ENTRY_ADDED,
 } from "../../constants/actions";
 
-export default handleActions({
-  [CACHE_ENTRY_ADDED]: (state: ObjectMap, action: Action<{ data: HandlPayload }>): ObjectMap => {
-    const data = get(action, ["payload", "data"], null);
-    if (!data) return state;
-    const { cache, key, value } = data as HandlPayload;
-    if (cache !== "queryPaths") return state;
-    state[key] = value;
-    return state;
-  },
-}, {});
+export default function queryPaths(
+  state: ObjectMap = {},
+  action: Action<{ data: ActionPayloads }>,
+): ObjectMap {
+  switch (action.type) {
+    case CACHE_ENTRY_ADDED: {
+      const data = get(action, ["payload", "data"], null) as CacheEntryAddedPayload;
+      if (!data) return state;
+      const { cache, key, value } = data;
+      if (cache !== "queryPaths") return state;
+      state[key] = value;
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}

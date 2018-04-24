@@ -1,22 +1,26 @@
-import { getActiveOperation } from "../../../selectors/active-operation";
 import * as React from "react";
 import styled from "styled-components";
-import { InfoBarGroups, InfoBarProps } from "./types";
-import { getActiveDataEntitiesCount } from "../../../selectors/active-data-entites-count";
-import { getActiveHandlID } from "../../../selectors/active-handl-id";
 import { connect, DispatchProp } from "react-redux";
 import { QUOTE } from "../../../constants/misc";
+import { getActiveDataEntitiesCount } from "../../../selectors/active-data-entites-count";
+import { getActiveDuration } from "../../../selectors/active-duration";
+import { getActiveHandlID } from "../../../selectors/active-handl-id";
+import { getActiveOperation } from "../../../selectors/active-operation";
 import { getActiveOperationName } from "../../../selectors/active-operation-name";
 import { getActiveQueryPathsCount } from "../../../selectors/active-query-paths-count";
 import { getActiveResponsesCount } from "../../../selectors/active-responses-count";
+import { getActiveStartTime } from "../../../selectors/active-start-time";
 import { ReduxState } from "../../../types";
+import { InfoBarProps } from "./types";
 
-const Section = styled.section`
+const Table = styled.div`
   display: table;
   width: 100%;
 `;
 
-const Group = styled.div`
+const TableCell = styled<
+  { active?: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
+>("div")`
   background-color: #333;
   border: 1px solid #111;
   display: table-cell;
@@ -58,43 +62,83 @@ const Value = styled.span`
 `;
 
 export class InfoBar extends React.Component {
+  private static _getEntriesText(count: number): string {
+    return count === 1 ? "entry" : "entries";
+  }
+
   public props: InfoBarProps;
 
   public render(): React.ReactNode {
-    const { dataEntities, handlID, operation, operationName, queryPaths, responses } = this.props;
-    const groups = { handlID, operation, operationName, responses, queryPaths, dataEntities };
+    const {
+      dataEntities,
+      duration,
+      handlID,
+      operation,
+      operationName,
+      queryPaths,
+      responses,
+      startTime,
+    } = this.props;
 
     if (!handlID) {
       return (
-        <Section>
-          <Group>
+        <Table>
+          <TableCell>
             <Label>{"Handl:"}</Label>
             <Quote>{QUOTE}</Quote>
-          </Group>
-        </Section>
+          </TableCell>
+        </Table>
       );
     }
 
     return (
-      <Section>
-        {Object.keys(groups).map((key: InfoBarGroups) => (
-          <Group key={key}>
-            <Label>{`${key}:`}</Label>
-            <Value>{this.props[key]}</Value>
-          </Group>
-        ))}
-      </Section>
+      <Table>
+        <TableCell key="request">
+          <Label>{"request:"}</Label>
+          <Value>{handlID}</Value>
+        </TableCell>
+        <TableCell key="time">
+          <Label>{"time:"}</Label>
+          <Value>{startTime}</Value>
+        </TableCell>
+        <TableCell key="duration">
+          <Label>{"duration:"}</Label>
+          <Value>{`${duration}ms`}</Value>
+        </TableCell>
+        <TableCell key="operation">
+          <Label>{"operation:"}</Label>
+          <Value>{operation}</Value>
+        </TableCell>
+        <TableCell key="operationName">
+          <Label>{"operaton name:"}</Label>
+          <Value>{operationName}</Value>
+        </TableCell>
+        <TableCell key="responses">
+          <Label>{"response cache:"}</Label>
+          <Value>{`${responses} ${InfoBar._getEntriesText(responses)} added`}</Value>
+        </TableCell>
+        <TableCell key="queryPaths">
+          <Label>{"query path cache:"}</Label>
+          <Value>{`${queryPaths} ${InfoBar._getEntriesText(queryPaths)} added`}</Value>
+        </TableCell>
+        <TableCell key="dataEntities">
+          <Label>{"data entities cache:"}</Label>
+          <Value>{`${dataEntities} ${InfoBar._getEntriesText(dataEntities)} added`}</Value>
+        </TableCell>
+      </Table>
     );
   }
 }
 
 const mapStateToProps = (state: ReduxState) => ({
   dataEntities: getActiveDataEntitiesCount(state),
+  duration: getActiveDuration(state),
   handlID: getActiveHandlID(state),
   operation: getActiveOperation(state),
   operationName: getActiveOperationName(state),
   queryPaths: getActiveQueryPathsCount(state),
   responses: getActiveResponsesCount(state),
+  startTime: getActiveStartTime(state),
 });
 
 export default connect<InfoBarProps, DispatchProp<any>>(mapStateToProps)(InfoBar);
