@@ -2,16 +2,16 @@ import { cloneDeep, get } from "lodash";
 import { Action } from "redux-actions";
 
 import {
+  CACHE_ENTRY_ADDED,
+  REQUEST_TIMED,
+} from "../../constants/actions";
+
+import {
   ActionPayloads,
   ActiveRequestState,
   CacheEntryAddedPayload,
   RequestTimedPayload,
 } from "../../types";
-
-import {
-  CACHE_ENTRY_ADDED,
-  REQUEST_TIMED,
-} from "../../constants/actions";
 
 const initialState: ActiveRequestState = {
   dataEntities: [],

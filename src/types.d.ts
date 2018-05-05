@@ -1,7 +1,7 @@
 import { ExecutionResult, GraphQLSchema, GraphQLType } from "graphql";
 import { HandlClientRequestResult } from "handl";
 
-export type ActionPayloads = CacheEntryAddedPayload | RequestTimedPayload;
+export type ActionPayloads = CacheEntryAddedPayload | RequestTimedPayload | SchemaTypesReceivedPayload;
 
 export interface ActiveRequestState {
   dataEntities: string[];
@@ -68,3 +68,5 @@ export interface RequestTimedPayload {
   operationName: string;
   startTime: number;
 }
+
+export type SchemaTypesReceivedPayload = string[];

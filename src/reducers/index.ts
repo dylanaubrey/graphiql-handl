@@ -3,6 +3,7 @@ import activeRequest from "./active-request";
 import dataEntities from "./data-entities";
 import queryPaths from "./query-paths";
 import responses from "./responses";
+import schemaTypes from "./schema-types";
 import { CombineReducersResult } from "./types";
 
 export default combineReducers<CombineReducersResult, AnyAction>({
@@ -10,4 +11,5 @@ export default combineReducers<CombineReducersResult, AnyAction>({
   dataEntities,
   queryPaths,
   responses,
+  schemaTypes,
 });
