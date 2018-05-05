@@ -1,8 +1,8 @@
 import * as GraphiQL from "graphiql";
 import * as React from "react";
 import styled from "styled-components";
-import { HandlExplorer } from "../handl-explorer";
-import { GraphiQLMaskProps, GraphiQLProps, GraphiQLState } from "./types";
+import { HandlExplorer } from "~/components/handl-explorer";
+import { GraphiQLMaskProps, GraphiQLProps, GraphiQLState } from "~/components/graphiql-handl/types";
 
 const Container = styled.div`
   height: 100%;

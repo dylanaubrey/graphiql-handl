@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
-import { getActiveRequest } from "..";
-import { ActiveRequestState, OperationTypes, ReduxState } from "../../types";
+import { getActiveRequest } from "~/selectors";
+import { ActiveRequestState, OperationTypes, ReduxState } from "~/types";
 
 export const getActiveOperation: (state: ReduxState) => OperationTypes = createSelector(
   [getActiveRequest],

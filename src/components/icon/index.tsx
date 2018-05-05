@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { symbols } from "./symbols";
-import { IconProps, SVGProps } from "./types";
+import { symbols } from "~/components/icon/symbols";
+import { IconProps, SVGProps } from "~/components/icon/types";
 
 const StyledSVG = styled<SVGProps & React.SVGProps<SVGSVGElement>, "svg">("svg")`
   display: inline-block;

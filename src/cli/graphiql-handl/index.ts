@@ -1,8 +1,8 @@
 import "isomorphic-fetch";
 import * as path from "path";
 import * as yargs from "yargs";
-import startServer from "../../server";
-import { ObjectMap } from "../../types";
+import startServer from "~/server";
+import { ObjectMap } from "~/types";
 
 const argv = yargs.option("headers", { type: "array" }).argv;
 const rootDir = process.cwd();

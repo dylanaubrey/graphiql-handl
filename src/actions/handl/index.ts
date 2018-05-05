@@ -8,7 +8,7 @@ import {
   REQUEST_TIMED,
   SCHEMA_TYPES_RECEIVED,
   SUBSCRIPTION_EXECUTED,
-} from "../../constants/actions";
+} from "~/constants/actions";
 
 export const {
   cacheEntryAdded,

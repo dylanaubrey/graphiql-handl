@@ -1,4 +1,4 @@
-import { ActiveRequestState, ObjectMap } from "../types";
+import { ActiveRequestState, ObjectMap } from "~/types";
 
 export interface CombineReducersResult {
   activeRequest: ActiveRequestState;

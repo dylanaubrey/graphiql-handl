@@ -63,6 +63,11 @@
     ["babel-plugin-styled-components", {
       "displayName": true
     }],
+    ["module-resolver", {
+      "alias": {
+        "~": "./src"
+      }
+    }],
     "lodash",
     "@babel/plugin-proposal-decorators"
   ]

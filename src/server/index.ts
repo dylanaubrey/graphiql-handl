@@ -4,9 +4,9 @@ import * as express from "express";
 import * as http from "http";
 import * as shell from "shelljs";
 import * as webpack from "webpack";
-import getRouter from "../router";
-import { GraphiQLHandlArgs } from "../types";
-import getWebpackConfig from "../webpack";
+import getRouter from "~/router";
+import { GraphiQLHandlArgs } from "~/types";
+import getWebpackConfig from "~/webpack";
 
 export default async function startServer(args: GraphiQLHandlArgs): Promise<void> {
   const router = await getRouter(args);

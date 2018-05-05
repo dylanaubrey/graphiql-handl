@@ -1,17 +1,17 @@
 import * as React from "react";
 import styled from "styled-components";
 import { connect, DispatchProp } from "react-redux";
-import { QUOTE } from "../../../constants/misc";
-import { getActiveDataEntitiesCount } from "../../../selectors/active-data-entites-count";
-import { getActiveDuration } from "../../../selectors/active-duration";
-import { getActiveHandlID } from "../../../selectors/active-handl-id";
-import { getActiveOperation } from "../../../selectors/active-operation";
-import { getActiveOperationName } from "../../../selectors/active-operation-name";
-import { getActiveQueryPathsCount } from "../../../selectors/active-query-paths-count";
-import { getActiveResponsesCount } from "../../../selectors/active-responses-count";
-import { getActiveStartTime } from "../../../selectors/active-start-time";
-import { ReduxState } from "../../../types";
-import { InfoBarProps } from "./types";
+import { QUOTE } from "~/constants/misc";
+import { getActiveDataEntitiesCount } from "~/selectors/active-data-entites-count";
+import { getActiveDuration } from "~/selectors/active-duration";
+import { getActiveHandlID } from "~/selectors/active-handl-id";
+import { getActiveOperation } from "~/selectors/active-operation";
+import { getActiveOperationName } from "~/selectors/active-operation-name";
+import { getActiveQueryPathsCount } from "~/selectors/active-query-paths-count";
+import { getActiveResponsesCount } from "~/selectors/active-responses-count";
+import { getActiveStartTime } from "~/selectors/active-start-time";
+import { ReduxState } from "~/types";
+import { InfoBarProps } from "~/components/info-bar/types";
 
 const Table = styled.div`
   display: table;
@@ -93,8 +93,8 @@ export class InfoBar extends React.Component {
 
     return (
       <Table>
-        <TableCell key="request">
-          <Label>{"request:"}</Label>
+        <TableCell key="lastRequest">
+          <Label>{"last request:"}</Label>
           <Value>{handlID}</Value>
         </TableCell>
         <TableCell key="time">

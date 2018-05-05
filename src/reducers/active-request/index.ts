@@ -4,14 +4,14 @@ import { Action } from "redux-actions";
 import {
   CACHE_ENTRY_ADDED,
   REQUEST_TIMED,
-} from "../../constants/actions";
+} from "~/constants/actions";
 
 import {
   ActionPayloads,
   ActiveRequestState,
   CacheEntryAddedPayload,
   RequestTimedPayload,
-} from "../../types";
+} from "~/types";
 
 const initialState: ActiveRequestState = {
   dataEntities: [],

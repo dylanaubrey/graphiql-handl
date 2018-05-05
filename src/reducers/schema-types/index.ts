@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { Action } from "redux-actions";
-import { SCHEMA_TYPES_RECEIVED } from "../../constants/actions";
-import { ActionPayloads, ObjectMap, SchemaTypesReceivedPayload } from "../../types";
+import { SCHEMA_TYPES_RECEIVED } from "~/constants/actions";
+import { ActionPayloads, ObjectMap, SchemaTypesReceivedPayload } from "~/types";
 
 export default function schemaTypes(
   state: ObjectMap = {},

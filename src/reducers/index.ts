@@ -1,10 +1,10 @@
 import { AnyAction, combineReducers } from "redux";
-import activeRequest from "./active-request";
-import dataEntities from "./data-entities";
-import queryPaths from "./query-paths";
-import responses from "./responses";
-import schemaTypes from "./schema-types";
-import { CombineReducersResult } from "./types";
+import activeRequest from "~/reducers/active-request";
+import dataEntities from "~/reducers/data-entities";
+import queryPaths from "~/reducers/query-paths";
+import responses from "~/reducers/responses";
+import schemaTypes from "~/reducers/schema-types";
+import { CombineReducersResult } from "~/reducers/types";
 
 export default combineReducers<CombineReducersResult, AnyAction>({
   activeRequest,

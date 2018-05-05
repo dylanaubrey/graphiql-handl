@@ -9,8 +9,8 @@ import {
 } from "graphql";
 
 import * as path from "path";
-import htmlTemplate from "../template";
-import { GraphiQLHandlArgs, ObjectMap, PreLoadedState } from "../types";
+import htmlTemplate from "~/template";
+import { GraphiQLHandlArgs, ObjectMap, PreLoadedState } from "~/types";
 
 async function getPreLoadedState(args: GraphiQLHandlArgs): Promise<PreLoadedState> {
   const { headers, propsPath, rootDir, schemaPath, url } = args;

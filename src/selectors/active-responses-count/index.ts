@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
-import { getActiveRequest } from "..";
-import { ActiveRequestState, ReduxState } from "../../types";
+import { getActiveRequest } from "~/selectors";
+import { ActiveRequestState, ReduxState } from "~/types";
 
 export const getActiveResponsesCount: (state: ReduxState) => number = createSelector(
   [getActiveRequest],

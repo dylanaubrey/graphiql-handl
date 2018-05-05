@@ -17,7 +17,7 @@ import {
   requestExecuted,
   requestTimed,
   subscriptionExecuted,
-} from "../actions/handl";
+} from "~/actions/handl";
 
 export default function handlEventListeners(handl: ClientHandl, dispatch: Dispatch<{}>): void {
   handl

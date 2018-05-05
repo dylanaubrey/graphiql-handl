@@ -19,6 +19,9 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
+    "paths": {
+      "~/*": ["src/*"]
+    },
     "pretty": true,
     "skipLibCheck": true,
     "strictNullChecks": true,

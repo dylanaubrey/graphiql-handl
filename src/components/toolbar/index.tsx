@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
-import Icon from "../icon";
-import InfoBar from "../info-bar";
-import { ToolbarProps } from "./types";
+import Icon from "~/components/icon";
+import InfoBar from "~/components/info-bar";
+import { ToolbarProps } from "~/components/toolbar/types";
 
 const Container = styled.div`
   background-color: #111;
@@ -15,7 +15,7 @@ const ToolbarMain = styled.div`
   padding: 5px;
 `;
 
-const ToolbarIcon = styled<
+const ToolbarToggle = styled<
   { explorerOpen: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
 >("div")`
   cursor: pointer;
@@ -46,9 +46,9 @@ export default class Toolbar extends React.Component {
         <ToolbarMain>
           <InfoBar />
         </ToolbarMain>
-        <ToolbarIcon explorerOpen={this.props.explorerOpen} onClick={this.props.onClick}>
+        <ToolbarToggle explorerOpen={this.props.explorerOpen} onClick={this.props.onClick}>
           <Icon symbol={this.props.explorerOpen ? "chevronUp" : "chevronDown"} />
-        </ToolbarIcon>
+        </ToolbarToggle>
       </Container>
     );
   }

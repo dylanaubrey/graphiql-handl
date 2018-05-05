@@ -1,10 +1,7 @@
 import { get } from "lodash";
 import { Action } from "redux-actions";
-import { ActionPayloads, CacheEntryAddedPayload, ObjectMap } from "../../types";
-
-import {
-  CACHE_ENTRY_ADDED,
-} from "../../constants/actions";
+import { ActionPayloads, CacheEntryAddedPayload, ObjectMap } from "~/types";
+import { CACHE_ENTRY_ADDED } from "~/constants/actions";
 
 export default function responses(
   state: ObjectMap = {},

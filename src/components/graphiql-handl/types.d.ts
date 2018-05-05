@@ -5,7 +5,7 @@ export interface GraphiQLMaskProps {
 export interface GraphiQLProps {
   defaultQuery?: string;
   editorTheme?: string;
-  fetcher?: (value: FetcherArgs) => Promise<HandlClientRequestResult>
+  fetcher?: (value: FetcherArgs) => Promise<HandlClientRequestResult>;
   operationName?: string;
   query?: string;
   response?: ObjectMap;

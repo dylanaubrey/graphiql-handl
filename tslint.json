@@ -7,9 +7,9 @@
       "named-imports-order": "case-insensitive"
     }],
     "interface-name": [true, "never-prefix"],
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": false,
     "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
-    "no-submodule-imports": [true, "react-dom/server"],
+    "no-submodule-imports": [true, "~", "react-dom/server"],
     "no-this-assignment": [true, {"allowed-names": ["_this"] }],
     "no-var-requires": false,
     "object-literal-sort-keys": [true, "ignore-case"],
