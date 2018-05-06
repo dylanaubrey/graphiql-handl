@@ -1,65 +1,24 @@
+import { getActiveOperationName } from "~/selectors/active-operation-name";
 import * as React from "react";
-import styled from "styled-components";
-import { connect, DispatchProp } from "react-redux";
 import { QUOTE } from "~/constants/misc";
 import { getActiveDataEntitiesCount } from "~/selectors/active-data-entites-count";
 import { getActiveDuration } from "~/selectors/active-duration";
 import { getActiveHandlID } from "~/selectors/active-handl-id";
 import { getActiveOperation } from "~/selectors/active-operation";
-import { getActiveOperationName } from "~/selectors/active-operation-name";
+import { connect, DispatchProp } from "react-redux";
 import { getActiveQueryPathsCount } from "~/selectors/active-query-paths-count";
 import { getActiveResponsesCount } from "~/selectors/active-responses-count";
 import { getActiveStartTime } from "~/selectors/active-start-time";
 import { ReduxState } from "~/types";
 import { InfoBarProps } from "~/components/info-bar/types";
 
-const Table = styled.div`
-  display: table;
-  width: 100%;
-`;
-
-const TableCell = styled<
-  { active?: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
->("div")`
-  background-color: #333;
-  border: 1px solid #111;
-  display: table-cell;
-  padding: 0 5px;
-`;
-
-const Label = styled.span`
-  color: #ccc;
-  display: block;
-  font-size: 12px;
-`;
-
-const Quote = styled.span`
-  animation:
-    typing 10s steps(116, end),
-    blink-caret 0.75s step-end infinite;
-  border-right: 2px solid #fff;
-  display: inline-block;
-  font-size: 15px;
-  overflow: hidden;
-  vertical-align: bottom;
-  white-space: nowrap;
-
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 960px; }
-  }
-
-  @keyframes blink-caret {
-    from,
-    to { border-color: transparent; }
-    50% { border-color: #fff; }
-  }
-`;
-
-const Value = styled.span`
-  display: block;
-  font-size: 15px;
-`;
+import {
+  InfoBarCell,
+  InfoBarCellLabel,
+  InfoBarCellValue,
+  InfoBarQuote,
+  InfoBarTable,
+} from "~/components/info-bar/styled";
 
 export class InfoBar extends React.Component {
   private static _getEntriesText(count: number): string {
@@ -82,50 +41,50 @@ export class InfoBar extends React.Component {
 
     if (!handlID) {
       return (
-        <Table>
-          <TableCell>
-            <Label>{"Handl:"}</Label>
-            <Quote>{QUOTE}</Quote>
-          </TableCell>
-        </Table>
+        <InfoBarTable>
+          <InfoBarCell>
+            <InfoBarCellLabel>{"Handl:"}</InfoBarCellLabel>
+            <InfoBarQuote>{QUOTE}</InfoBarQuote>
+          </InfoBarCell>
+        </InfoBarTable>
       );
     }
 
     return (
-      <Table>
-        <TableCell key="lastRequest">
-          <Label>{"last request:"}</Label>
-          <Value>{handlID}</Value>
-        </TableCell>
-        <TableCell key="time">
-          <Label>{"time:"}</Label>
-          <Value>{startTime}</Value>
-        </TableCell>
-        <TableCell key="duration">
-          <Label>{"duration:"}</Label>
-          <Value>{`${duration}ms`}</Value>
-        </TableCell>
-        <TableCell key="operation">
-          <Label>{"operation:"}</Label>
-          <Value>{operation}</Value>
-        </TableCell>
-        <TableCell key="operationName">
-          <Label>{"operaton name:"}</Label>
-          <Value>{operationName}</Value>
-        </TableCell>
-        <TableCell key="responses">
-          <Label>{"response cache:"}</Label>
-          <Value>{`${responses} ${InfoBar._getEntriesText(responses)} added`}</Value>
-        </TableCell>
-        <TableCell key="queryPaths">
-          <Label>{"query path cache:"}</Label>
-          <Value>{`${queryPaths} ${InfoBar._getEntriesText(queryPaths)} added`}</Value>
-        </TableCell>
-        <TableCell key="dataEntities">
-          <Label>{"data entities cache:"}</Label>
-          <Value>{`${dataEntities} ${InfoBar._getEntriesText(dataEntities)} added`}</Value>
-        </TableCell>
-      </Table>
+      <InfoBarTable>
+        <InfoBarCell key="lastRequest">
+          <InfoBarCellLabel>{"last request:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{handlID}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="time">
+          <InfoBarCellLabel>{"time:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{startTime}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="duration">
+          <InfoBarCellLabel>{"duration:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{`${duration}ms`}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="operation">
+          <InfoBarCellLabel>{"operation:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{operation}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="operationName">
+          <InfoBarCellLabel>{"operaton name:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{operationName}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="responses">
+          <InfoBarCellLabel>{"response cache:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{`${responses} ${InfoBar._getEntriesText(responses)} added`}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="queryPaths">
+          <InfoBarCellLabel>{"query path cache:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{`${queryPaths} ${InfoBar._getEntriesText(queryPaths)} added`}</InfoBarCellValue>
+        </InfoBarCell>
+        <InfoBarCell key="dataEntities">
+          <InfoBarCellLabel>{"data entities cache:"}</InfoBarCellLabel>
+          <InfoBarCellValue>{`${dataEntities} ${InfoBar._getEntriesText(dataEntities)} added`}</InfoBarCellValue>
+        </InfoBarCell>
+      </InfoBarTable>
     );
   }
 }

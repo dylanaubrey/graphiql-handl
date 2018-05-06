@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { schemaTypesReceived } from "~/actions/handl";
-import { GraphiQLHandl } from "~/components/graphiql-handl";
+import GraphiQLHandl from "~/components/graphiql-handl";
 import handlEventListeners from "~/handl-event-listeners";
 import rootReducer from "~/reducers";
 import { FetcherArgs, PreLoadedState } from "~/types";

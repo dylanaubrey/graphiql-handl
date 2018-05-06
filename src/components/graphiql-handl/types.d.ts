@@ -1,7 +1,3 @@
-export interface GraphiQLMaskProps {
-  mask: boolean;
-}
-
 export interface GraphiQLProps {
   defaultQuery?: string;
   editorTheme?: string;

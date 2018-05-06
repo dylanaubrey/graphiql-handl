@@ -25,6 +25,7 @@ export interface CacheEntryAddedPayload {
 }
 
 export type CacheTypes = "responses" | "queryPaths" | "dataEntities";
+export type ExplorerPanels = "typeCacheControl";
 
 export interface FetcherArgs {
   query: string;

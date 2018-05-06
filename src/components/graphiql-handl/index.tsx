@@ -1,24 +1,10 @@
 import * as GraphiQL from "graphiql";
 import * as React from "react";
-import styled from "styled-components";
-import { HandlExplorer } from "~/components/handl-explorer";
-import { GraphiQLMaskProps, GraphiQLProps, GraphiQLState } from "~/components/graphiql-handl/types";
+import HandlExplorer from "~/components/handl-explorer";
+import { GraphiQLMask } from "~/components/graphiql-handl/styled";
+import { GraphiQLProps, GraphiQLState } from "~/components/graphiql-handl/types";
 
-const Container = styled.div`
-  height: 100%;
-`;
-
-const GraphiQLMask = styled<
-  GraphiQLMaskProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
->("div")`
-  background-color: #000;
-  height: 100%;
-  opacity: ${({ mask }) => mask ? "0.5" : "1"};
-  pointer-events: ${({ mask }) => mask ? "none" : "initial"};
-  transition: opacity 0.3s;
-`;
-
-export class GraphiQLHandl extends React.Component {
+export default class GraphiQLHandl extends React.Component {
   public props: GraphiQLProps;
   public state: GraphiQLState;
 
@@ -30,7 +16,7 @@ export class GraphiQLHandl extends React.Component {
 
   public render(): React.ReactNode {
     return (
-      <Container className="graphiql-handl">
+      <div className="graphiql-handl">
         <HandlExplorer
           explorerOpen={this.state.explorerOpen}
           toolbarClickHandler={this._toolbarClickHandler}
@@ -38,11 +24,11 @@ export class GraphiQLHandl extends React.Component {
         <GraphiQLMask mask={this.state.explorerOpen}>
           <GraphiQL {...this.props} />
         </GraphiQLMask>
-      </Container>
+      </div>
     );
   }
 
-  private _toolbarClickHandler(ev: React.MouseEvent<HTMLDivElement>): void {
+  private _toolbarClickHandler(): void {
     this.setState({ explorerOpen: !this.state.explorerOpen });
   }
 }
