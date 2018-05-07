@@ -24,10 +24,6 @@ export default function htmlTemplate(preLoadedState: PreLoadedState): string {
           .graphiql-handl {
             height: 100%;
           }
-
-          .handl-explorer {
-            color: #fff;
-          }
         </style>
         <link href="/assets/graphiql-styles.css" rel="stylesheet">
       </head>

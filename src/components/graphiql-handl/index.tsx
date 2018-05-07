@@ -21,7 +21,7 @@ export default class GraphiQLHandl extends React.Component {
           explorerOpen={this.state.explorerOpen}
           toolbarClickHandler={this._toolbarClickHandler}
         />
-        <GraphiQLMask mask={this.state.explorerOpen}>
+        <GraphiQLMask explorerOpen={this.state.explorerOpen}>
           <GraphiQL {...this.props} />
         </GraphiQLMask>
       </div>

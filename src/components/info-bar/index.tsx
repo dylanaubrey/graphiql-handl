@@ -1,16 +1,5 @@
-import { getActiveOperationName } from "~/selectors/active-operation-name";
 import * as React from "react";
-import { QUOTE } from "~/constants/misc";
-import { getActiveDataEntitiesCount } from "~/selectors/active-data-entites-count";
-import { getActiveDuration } from "~/selectors/active-duration";
-import { getActiveHandlID } from "~/selectors/active-handl-id";
-import { getActiveOperation } from "~/selectors/active-operation";
 import { connect, DispatchProp } from "react-redux";
-import { getActiveQueryPathsCount } from "~/selectors/active-query-paths-count";
-import { getActiveResponsesCount } from "~/selectors/active-responses-count";
-import { getActiveStartTime } from "~/selectors/active-start-time";
-import { ReduxState } from "~/types";
-import { InfoBarProps } from "~/components/info-bar/types";
 
 import {
   InfoBarCell,
@@ -19,6 +8,18 @@ import {
   InfoBarQuote,
   InfoBarTable,
 } from "~/components/info-bar/styled";
+
+import { InfoBarProps } from "~/components/info-bar/types";
+import { QUOTE } from "~/constants/misc";
+import { getActiveOperationName } from "~/selectors/active-operation-name";
+import { getActiveDataEntitiesCount } from "~/selectors/active-data-entites-count";
+import { getActiveDuration } from "~/selectors/active-duration";
+import { getActiveHandlID } from "~/selectors/active-handl-id";
+import { getActiveOperation } from "~/selectors/active-operation";
+import { getActiveQueryPathsCount } from "~/selectors/active-query-paths-count";
+import { getActiveResponsesCount } from "~/selectors/active-responses-count";
+import { getActiveStartTime } from "~/selectors/active-start-time";
+import { ReduxState } from "~/types";
 
 export class InfoBar extends React.Component {
   private static _getEntriesText(count: number): string {
@@ -52,8 +53,8 @@ export class InfoBar extends React.Component {
 
     return (
       <InfoBarTable>
-        <InfoBarCell key="lastRequest">
-          <InfoBarCellLabel>{"last request:"}</InfoBarCellLabel>
+        <InfoBarCell key="activeRequest">
+          <InfoBarCellLabel>{"Active request:"}</InfoBarCellLabel>
           <InfoBarCellValue>{handlID}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="time">

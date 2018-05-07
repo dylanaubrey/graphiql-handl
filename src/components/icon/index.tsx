@@ -11,7 +11,6 @@ export default class Icon extends React.Component {
 
     return (
       <StyledSVG
-        aria-hidden="true"
         data-icon="chevron-down"
         role="img"
         size={size}

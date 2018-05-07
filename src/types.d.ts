@@ -56,9 +56,10 @@ export interface PreLoadedState {
 
 export interface ReduxState {
   activeRequest: ActiveRequestState;
-  dataEntities: [];
-  queryPaths: [];
-  response: [];
+  dataEntities: ObjectMap;
+  queryPaths: ObjectMap;
+  responses: ObjectMap;
+  schemaTypes: ObjectMap;
 }
 
 export interface RequestTimedPayload {
