@@ -3,6 +3,7 @@ import styled, { StyledComponentClass } from "styled-components";
 
 export const InfoBarTable = styled.div`
   display: table;
+  height: 40px;
   width: 100%;
 `;
 
@@ -11,12 +12,6 @@ export const InfoBarCell = styled.div`
   border: 1px solid #111;
   display: table-cell;
   padding: 0 5px;
-`;
-
-export const InfoBarCellLabel = styled.span`
-  color: #ccc;
-  display: block;
-  font-size: 12px;
 `;
 
 export const InfoBarCellValue = styled.span`

@@ -1,17 +1,18 @@
 import * as React from "react";
 import styled, { StyledComponentClass } from "styled-components";
 
-export const ExplorerContainer = styled<
+export const HandlExplorerSection = styled<
   { explorerOpen: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
 >("div")`
   background-color: #111;
-  color: #fff;
-  height: ${({ explorerOpen }) => explorerOpen ? "100%" : "100px"};
+  color: #eee;
+  height: ${({ explorerOpen }) => explorerOpen ? "calc(100% - 20px);" : "70px"};
+  padding: 10px;
   position: relative;
   transition: height 0.3s;
 `;
 
-export const ExplorerToggle = styled<
+export const HandlExplorerToggle = styled<
   { explorerOpen: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
 >("div")`
   bottom: 0;
@@ -22,7 +23,6 @@ export const ExplorerToggle = styled<
   width: 100%;
 
   > svg {
-    color: #ddd;
     display: block;
     margin: 0 auto;
     transition: color 0.2s;

@@ -3,13 +3,13 @@ import { connect, DispatchProp } from "react-redux";
 
 import {
   InfoBarCell,
-  InfoBarCellLabel,
   InfoBarCellValue,
   InfoBarQuote,
   InfoBarTable,
 } from "~/components/info-bar/styled";
 
 import { InfoBarProps } from "~/components/info-bar/types";
+import { Label } from "~/components/styled";
 import { QUOTE } from "~/constants/misc";
 import { getActiveOperationName } from "~/selectors/active-operation-name";
 import { getActiveDataEntitiesCount } from "~/selectors/active-data-entites-count";
@@ -44,7 +44,7 @@ export class InfoBar extends React.Component {
       return (
         <InfoBarTable>
           <InfoBarCell>
-            <InfoBarCellLabel>{"Handl:"}</InfoBarCellLabel>
+            <Label>{"Handl:"}</Label>
             <InfoBarQuote>{QUOTE}</InfoBarQuote>
           </InfoBarCell>
         </InfoBarTable>
@@ -54,35 +54,35 @@ export class InfoBar extends React.Component {
     return (
       <InfoBarTable>
         <InfoBarCell key="activeRequest">
-          <InfoBarCellLabel>{"Active request:"}</InfoBarCellLabel>
+          <Label>{"Active request:"}</Label>
           <InfoBarCellValue>{handlID}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="time">
-          <InfoBarCellLabel>{"time:"}</InfoBarCellLabel>
+          <Label>{"time:"}</Label>
           <InfoBarCellValue>{startTime}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="duration">
-          <InfoBarCellLabel>{"duration:"}</InfoBarCellLabel>
+          <Label>{"duration:"}</Label>
           <InfoBarCellValue>{`${duration}ms`}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="operation">
-          <InfoBarCellLabel>{"operation:"}</InfoBarCellLabel>
+          <Label>{"operation:"}</Label>
           <InfoBarCellValue>{operation}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="operationName">
-          <InfoBarCellLabel>{"operaton name:"}</InfoBarCellLabel>
+          <Label>{"operaton name:"}</Label>
           <InfoBarCellValue>{operationName}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="responses">
-          <InfoBarCellLabel>{"response cache:"}</InfoBarCellLabel>
+          <Label>{"response cache:"}</Label>
           <InfoBarCellValue>{`${responses} ${InfoBar._getEntriesText(responses)} added`}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="queryPaths">
-          <InfoBarCellLabel>{"query path cache:"}</InfoBarCellLabel>
+          <Label>{"query path cache:"}</Label>
           <InfoBarCellValue>{`${queryPaths} ${InfoBar._getEntriesText(queryPaths)} added`}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="dataEntities">
-          <InfoBarCellLabel>{"data entities cache:"}</InfoBarCellLabel>
+          <Label>{"data entities cache:"}</Label>
           <InfoBarCellValue>{`${dataEntities} ${InfoBar._getEntriesText(dataEntities)} added`}</InfoBarCellValue>
         </InfoBarCell>
       </InfoBarTable>

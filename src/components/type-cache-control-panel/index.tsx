@@ -1,5 +1,7 @@
 import * as React from "react";
 import { connect, DispatchProp } from "react-redux";
+import { Form, Label } from "~/components/styled";
+import { TypeList, TypeListInput, TypeListItem } from "~/components/type-cache-control-panel/styled";
 import { TypeCacheControlPanelProps } from "~/components/type-cache-control-panel/types";
 import { getSchemaTypesCacheControl } from "~/selectors/schema-types-cache-control";
 import { ReduxState } from "~/types";
@@ -11,24 +13,23 @@ export class TypeCacheControlPanel extends React.Component {
     const { schemaTypes } = this.props;
 
     return (
-      <ul>
+      <TypeList>
         {Object.keys(schemaTypes).map((typeName) => {
           return (
-            <li key={typeName}>
-              <form>
-                <label htmlFor={typeName}>{typeName}</label>
-                <input
+            <TypeListItem key={typeName}>
+              <Form>
+                <Label htmlFor={typeName}>{`${typeName}:`}</Label>
+                <TypeListInput
                   id={typeName}
                   type="text"
-                  value={schemaTypes[typeName]}
                 />
                 <button type="submit">Save</button>
                 {schemaTypes[typeName] && <button type="reset">Clear</button>}
-              </form>
-            </li>
+              </Form>
+            </TypeListItem>
           );
         })}
-      </ul>
+      </TypeList>
     );
   }
 }

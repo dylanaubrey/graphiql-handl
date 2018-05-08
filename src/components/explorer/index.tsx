@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ExplorerColumn, ExplorerTable } from "~/components/explorer/styled";
+import { ExplorerMain, ExplorerSection, ExplorerSidebar } from "~/components/explorer/styled";
 import { ExplorerState } from "~/components/explorer/types";
 import ExplorerMenu from "~/components/explorer-menu";
 import ExplorerPanel from "~/components/explorer-panel";
@@ -17,19 +17,17 @@ export default class Explorer extends React.Component {
 
   public render(): React.ReactNode {
     return (
-      <div className="explorer-container">
-        <ExplorerTable>
-          <ExplorerColumn>
-            <ExplorerMenu
-              activeMenuItem={this.state.activePanel}
-              onClick={this._menuChangeHandler}
-            />
-          </ExplorerColumn>
-          <ExplorerColumn>
-            <ExplorerPanel activePanel={this.state.activePanel} />
-          </ExplorerColumn>
-        </ExplorerTable>
-      </div>
+      <ExplorerSection>
+        <ExplorerSidebar>
+          <ExplorerMenu
+            activeMenuItem={this.state.activePanel}
+            onClick={this._menuChangeHandler}
+          />
+        </ExplorerSidebar>
+        <ExplorerMain>
+          <ExplorerPanel activePanel={this.state.activePanel} />
+        </ExplorerMain>
+      </ExplorerSection>
     );
   }
 
