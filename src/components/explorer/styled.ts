@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled, { StyledComponentClass } from "styled-components";
+import { ScrollBar } from "~/components/styled";
 
 export const ExplorerSection = styled.div`
   height: calc(100% - 80px);
@@ -15,7 +16,7 @@ export const ExplorerSidebar = styled.div`
   width: 198px;
 `;
 
-export const ExplorerMain = styled.div`
+export const ExplorerMain = ScrollBar.extend`
   float: left;
   height: calc(100% - 20px);
   overflow-y: hidden;

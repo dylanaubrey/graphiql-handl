@@ -8,6 +8,7 @@ import {
   REQUEST_TIMED,
   SCHEMA_TYPES_RECEIVED,
   SUBSCRIPTION_EXECUTED,
+  TYPE_CACHE_CONTROL_ADDED,
 } from "~/constants/actions";
 
 export const {
@@ -18,6 +19,7 @@ export const {
   requestTimed,
   schemaTypesReceived,
   subscriptionExecuted,
+  typeCacheControlAdded,
 }: { [key: string]: ActionFunctionAny<Action<{ data: any }>>;  } = createActions({
   [CACHE_ENTRY_ADDED]: (data) => ({ data }),
   [FETCH_EXECUTED]: (data) => ({ data }),
@@ -26,4 +28,5 @@ export const {
   [REQUEST_TIMED]: (data) => ({ data }),
   [SCHEMA_TYPES_RECEIVED]: (data) => ({ data }),
   [SUBSCRIPTION_EXECUTED]: (data) => ({ data }),
+  [TYPE_CACHE_CONTROL_ADDED]: (data) => ({ data }),
 });

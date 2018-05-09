@@ -1,14 +1,17 @@
 import * as React from "react";
-import { connect, DispatchProp } from "react-redux";
-import { Form, Label } from "~/components/styled";
-import { TypeList, TypeListInput, TypeListItem } from "~/components/type-cache-control-panel/styled";
-import { TypeCacheControlPanelProps } from "~/components/type-cache-control-panel/types";
+import { connect } from "react-redux";
+import { TypeList, TypeListItem } from "~/components/type-cache-control-panel/styled";
+
+import {
+  TypeCacheControlPanelProps,
+  TypeCacheControlPanelStateToProps,
+} from "~/components/type-cache-control-panel/types";
+
+import TypeCacheControlPanelForm from "~/components/type-cache-control-panel-form";
 import { getSchemaTypesCacheControl } from "~/selectors/schema-types-cache-control";
 import { ReduxState } from "~/types";
 
-export class TypeCacheControlPanel extends React.Component {
-  public props: TypeCacheControlPanelProps;
-
+class TypeCacheControlPanel extends React.Component<TypeCacheControlPanelProps> {
   public render(): React.ReactNode {
     const { schemaTypes } = this.props;
 
@@ -17,15 +20,7 @@ export class TypeCacheControlPanel extends React.Component {
         {Object.keys(schemaTypes).map((typeName) => {
           return (
             <TypeListItem key={typeName}>
-              <Form>
-                <Label htmlFor={typeName}>{`${typeName}:`}</Label>
-                <TypeListInput
-                  id={typeName}
-                  type="text"
-                />
-                <button type="submit">Save</button>
-                {schemaTypes[typeName] && <button type="reset">Clear</button>}
-              </Form>
+              <TypeCacheControlPanelForm id={typeName} value={schemaTypes[typeName]} />
             </TypeListItem>
           );
         })}
@@ -38,4 +33,4 @@ const mapStateToProps = (state: ReduxState) => ({
   schemaTypes: getSchemaTypesCacheControl(state),
 });
 
-export default connect<TypeCacheControlPanelProps, DispatchProp<any>>(mapStateToProps)(TypeCacheControlPanel);
+export default connect<TypeCacheControlPanelStateToProps, undefined>(mapStateToProps)(TypeCacheControlPanel);

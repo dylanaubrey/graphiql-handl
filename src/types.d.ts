@@ -72,3 +72,8 @@ export interface RequestTimedPayload {
 }
 
 export type SchemaTypesReceivedPayload = string[];
+
+export interface TypeCacheControlAddedPayload {
+  cacheControl: string;
+  typeName: string;
+}

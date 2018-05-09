@@ -12,11 +12,12 @@ export default class Icon extends React.Component {
     return (
       <StyledSVG
         data-icon="chevron-down"
+        preserveAspectRatio="xMinYMax meet"
         role="img"
         size={size}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 448 512">
-        <path fill="currentColor" d={symbols[symbol]} />
+        viewBox={symbols[symbol].viewBox}>
+        <path fill="currentColor" d={symbols[symbol].path} />
       </StyledSVG>
     );
   }
