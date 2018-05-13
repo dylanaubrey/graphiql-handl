@@ -60,6 +60,7 @@ export interface ReduxState {
   queryPaths: ObjectMap;
   responses: ObjectMap;
   schemaTypes: ObjectMap;
+  searchTerms: SearchTermsState;
 }
 
 export interface RequestTimedPayload {
@@ -72,6 +73,11 @@ export interface RequestTimedPayload {
 }
 
 export type SchemaTypesReceivedPayload = string[];
+export type TermSearchedPayload = string;
+
+export interface SearchTermsState {
+  types: string;
+}
 
 export interface TypeCacheControlAddedPayload {
   cacheControl: string;

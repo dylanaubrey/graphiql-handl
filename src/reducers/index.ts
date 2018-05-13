@@ -4,6 +4,7 @@ import dataEntities from "~/reducers/data-entities";
 import queryPaths from "~/reducers/query-paths";
 import responses from "~/reducers/responses";
 import schemaTypes from "~/reducers/schema-types";
+import searchTerms from "~/reducers/search-terms";
 import { CombineReducersResult } from "~/reducers/types";
 
 export default combineReducers<CombineReducersResult, AnyAction>({
@@ -12,4 +13,5 @@ export default combineReducers<CombineReducersResult, AnyAction>({
   queryPaths,
   responses,
   schemaTypes,
+  searchTerms,
 });

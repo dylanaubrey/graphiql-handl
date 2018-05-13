@@ -6,9 +6,7 @@ export const Menu = styled.ul`
   padding: 0;
 `;
 
-export const MenuItem = styled<
-  { active: boolean; } & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, "li"
->("li")`
+export const MenuItem = styled.li<{ active: boolean; }>`
   background-color: ${({ active }) => active ? "#333" : "#111"};
   cursor: pointer;
   display: block;

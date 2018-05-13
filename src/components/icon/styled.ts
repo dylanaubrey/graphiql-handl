@@ -1,9 +1,8 @@
 import * as React from "react";
 import styled, { StyledComponentClass } from "styled-components";
 
-export const StyledSVG = styled<{ size?: string; } & React.SVGProps<SVGSVGElement>, "svg">("svg")`
+export const StyledSVG = styled.svg<{ size?: string; }>`
   display: inline-block;
   font-size: inherit;
   overflow: visible;
-  width: ${({ size }) => size === "lg" ? "40px" : size === "md" ? "30px" : "20px"};
 `;

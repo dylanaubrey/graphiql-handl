@@ -16,7 +16,7 @@ export default class HandlExplorer extends React.Component {
         <InfoBar />
         {explorerOpen && <Explorer />}
         <HandlExplorerToggle explorerOpen={explorerOpen} onClick={toolbarClickHandler}>
-          <Icon symbol={explorerOpen ? "chevronUp" : "chevronDown"} />
+          <Icon symbol={explorerOpen ? "chevronUp" : "chevronDown"} width="20px" />
         </HandlExplorerToggle>
       </HandlExplorerSection>
     );

@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled, { StyledComponentClass } from "styled-components";
-import { ScrollBar } from "~/components/styled";
 
 export const ExplorerSection = styled.div`
   height: calc(100% - 80px);
@@ -12,15 +11,14 @@ export const ExplorerSection = styled.div`
 export const ExplorerSidebar = styled.div`
   border-right: 2px solid #333;
   float: left;
-  height: 100%;
+  height: calc(100% - 5px);
   width: 198px;
 `;
 
-export const ExplorerMain = ScrollBar.extend`
+export const ExplorerMain = styled.div`
   float: left;
-  height: calc(100% - 20px);
-  overflow-y: hidden;
-  overflow-y: scroll;
+  height: 100%;
   padding: 10px;
+  position: relative;
   width: calc(100% - 220px);
 `;

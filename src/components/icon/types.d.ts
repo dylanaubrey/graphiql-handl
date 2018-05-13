@@ -1,6 +1,7 @@
 export interface IconProps {
-  size?: string;
+  height?: string;
   symbol: string;
+  width?: string;
 }
 
 export interface Symbols {

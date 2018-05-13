@@ -55,6 +55,7 @@ export const Label = styled.label`
   cursor: pointer;
   display: block;
   font-size: 12px;
+  margin-bottom: 5px;
 `;
 
 export const ScrollBar = styled.div`

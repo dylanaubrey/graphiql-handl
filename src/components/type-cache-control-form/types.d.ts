@@ -1,16 +1,17 @@
 import { Action, ActionFunctionAny } from "redux-actions";
 import { ObjectMap } from "~/types";
 
-export interface TypeCacheControlPanelDispatchToProps {
+export interface TypeCacheControlFormDispatchToProps {
   cacheControlAdded: ActionFunctionAny<Action<{ data: any; }>>;
 }
 
-export interface TypeCacheControlPanelFormProps {
+export interface TypeCacheControlFormProps {
   cacheControlAdded: ActionFunctionAny<Action<{ data: any; }>>;
   id: string;
-  value?: string;
+  inputValue?: string;
+  listType: "added" | "empty";
 }
 
-export interface TypeCacheControlPanelFormState {
+export interface TypeCacheControlFormState {
   inputValue: string;
 }

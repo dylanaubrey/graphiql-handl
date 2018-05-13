@@ -7,16 +7,17 @@ export default class Icon extends React.Component {
   public props: IconProps;
 
   public render(): React.ReactNode {
-    const { size, symbol } = this.props;
+    const { height, symbol, width } = this.props;
 
     return (
       <StyledSVG
-        data-icon="chevron-down"
+        height={height}
         preserveAspectRatio="xMinYMax meet"
         role="img"
-        size={size}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={symbols[symbol].viewBox}>
+        viewBox={symbols[symbol].viewBox}
+        width={width}
+      >
         <path fill="currentColor" d={symbols[symbol].path} />
       </StyledSVG>
     );

@@ -1,4 +1,4 @@
-import { ActiveRequestState, ObjectMap } from "~/types";
+import { ActiveRequestState, ObjectMap, SearchTermsState } from "~/types";
 
 export interface CombineReducersResult {
   activeRequest: ActiveRequestState;
@@ -6,4 +6,5 @@ export interface CombineReducersResult {
   queryPaths: ObjectMap;
   responses: ObjectMap;
   schemaTypes: ObjectMap;
+  searchTerms: SearchTermsState;
 }

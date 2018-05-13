@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled, { StyledComponentClass } from "styled-components";
 
-export const GraphiQLMask = styled<
-  { explorerOpen: boolean; } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "div"
->("div")`
+export const GraphiQLMask = styled.div<{ explorerOpen: boolean; }>`
   background-color: #000;
   height: 100%;
   opacity: ${({ explorerOpen }) => explorerOpen ? "0" : "1"};

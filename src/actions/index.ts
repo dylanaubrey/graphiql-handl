@@ -9,6 +9,7 @@ import {
   SCHEMA_TYPES_RECEIVED,
   SUBSCRIPTION_EXECUTED,
   TYPE_CACHE_CONTROL_ADDED,
+  TYPE_TERM_SEARCHED,
 } from "~/constants/actions";
 
 export const {
@@ -20,6 +21,7 @@ export const {
   schemaTypesReceived,
   subscriptionExecuted,
   typeCacheControlAdded,
+  typeTermSearched,
 }: { [key: string]: ActionFunctionAny<Action<{ data: any }>>;  } = createActions({
   [CACHE_ENTRY_ADDED]: (data) => ({ data }),
   [FETCH_EXECUTED]: (data) => ({ data }),
@@ -29,4 +31,5 @@ export const {
   [SCHEMA_TYPES_RECEIVED]: (data) => ({ data }),
   [SUBSCRIPTION_EXECUTED]: (data) => ({ data }),
   [TYPE_CACHE_CONTROL_ADDED]: (data) => ({ data }),
+  [TYPE_TERM_SEARCHED]: (data) => ({ data }),
 });
