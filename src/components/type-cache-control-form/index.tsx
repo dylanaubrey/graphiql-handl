@@ -2,7 +2,6 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { typeCacheControlAdded } from "~/actions";
 import Icon from "~/components/icon";
-import { Form } from "~/components/styled";
 
 import {
   TypeListForm,

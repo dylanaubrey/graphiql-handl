@@ -8,8 +8,8 @@ import {
   TypeCacheControlListStateToProps,
 } from "~/components/type-cache-control-list/types";
 
-import { getSchemaTypesCacheControlAdded } from "~/selectors/schema-types-cache-control-added";
-import { getSchemaTypesCacheControlEmpty } from "~/selectors/schema-types-cache-control-empty";
+import { getSearchedAddedTypeCacheControls } from "~/selectors/searched-added-type-cache-controls";
+import { getSearchedEmptyTypeCacheControls } from "~/selectors/searched-empty-type-cache-controls";
 import { ReduxState } from "~/types";
 
 class TypeCacheControlList extends React.Component<TypeCacheControlListProps> {
@@ -32,8 +32,8 @@ class TypeCacheControlList extends React.Component<TypeCacheControlListProps> {
 }
 
 const mapStateToProps = (state: ReduxState) => ({
-  typesAdded: getSchemaTypesCacheControlAdded(state),
-  typesEmpty: getSchemaTypesCacheControlEmpty(state),
+  typesAdded: getSearchedAddedTypeCacheControls(state),
+  typesEmpty: getSearchedEmptyTypeCacheControls(state),
 });
 
 export default connect<TypeCacheControlListStateToProps, undefined>(mapStateToProps)(TypeCacheControlList);

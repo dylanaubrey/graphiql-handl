@@ -1,15 +1,16 @@
+import thunk from "redux-thunk";
 import { buildClientSchema } from "graphql";
-import { ClientHandl, HandlClientRequestResultData } from "handl";
 import * as React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
+import { ClientHandl, HandlClientRequestResultData } from "handl";
 import { schemaTypesReceived } from "~/actions";
 import GraphiQLHandl from "~/components/graphiql-handl";
 import handlEventListeners from "~/handl-event-listeners";
 import rootReducer from "~/reducers";
-import { FetcherArgs, PreLoadedState } from "~/types";
+import { getAddedTypeCacheControls } from "~/selectors/added-type-cache-controls";
+import { FetcherArgs, ObjectMap, PreLoadedState } from "~/types";
 
 declare global {
   interface Window {
@@ -23,6 +24,14 @@ declare global {
   const store = createStore(rootReducer, applyMiddleware(thunk));
   handlEventListeners(handl, store.dispatch);
   store.dispatch(schemaTypesReceived(await handl.getSchemaTypes()));
+  let typeCacheControls: ObjectMap;
+
+  store.subscribe(() => {
+    const typeCacheControlsAdded = getAddedTypeCacheControls(store.getState());
+    if (typeCacheControlsAdded === typeCacheControls) return;
+    typeCacheControls = typeCacheControlsAdded;
+    handl.setTypeCacheControls(typeCacheControls);
+  });
 
   props.fetcher = async ({ operationName, query, variables }: FetcherArgs) => {
     const result = await handl.request(query, { operationName, variables }) as HandlClientRequestResultData;

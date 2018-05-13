@@ -4,7 +4,7 @@ import styled, { StyledComponentClass } from "styled-components";
 export const HandlExplorerSection = styled.div<{ explorerOpen: boolean; }>`
   background-color: #111;
   color: #eee;
-  height: ${({ explorerOpen }) => explorerOpen ? "calc(100% - 20px);" : "70px"};
+  height: ${({ explorerOpen }) => explorerOpen ? "calc(100% - 20px);" : "75px"};
   padding: 10px;
   position: relative;
   transition: height 0.3s;

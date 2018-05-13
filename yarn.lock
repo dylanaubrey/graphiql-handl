@@ -4251,9 +4251,9 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
-handl@^0.1.16:
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/handl/-/handl-0.1.16.tgz#264b477113e91a557a43be91dd8cfc9eb356a085"
+handl@^0.1.17:
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/handl/-/handl-0.1.17.tgz#52cd5a92abebe91c133ce0cf8e509e00537d3f6b"
   dependencies:
     "@babel/polyfill" "^7.0.0-beta.42"
     cacheability "^0.1.1"
@@ -8983,7 +8983,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript-styled-plugin@^0.6.0:
+typescript-styled-plugin@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/typescript-styled-plugin/-/typescript-styled-plugin-0.6.3.tgz#c9a5e7fa0d694118ae92515f3c7e91a1162f163f"
   dependencies:

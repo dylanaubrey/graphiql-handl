@@ -9,7 +9,7 @@ class TypeSearch extends React.Component<TypeSearchProps, TypeSearchState> {
   constructor(props: TypeSearchProps) {
     super(props);
     this.state = { searchValue: props.searchValue || "" };
-    this._onChangeHandler = this._onChangeHandler.bind(this);
+    this._onInputHandler = this._onInputHandler.bind(this);
   }
 
   public render() {
@@ -21,7 +21,8 @@ class TypeSearch extends React.Component<TypeSearchProps, TypeSearchState> {
           <Label htmlFor="search">Search:</Label>
           <Input
             id="search"
-            onChange={this._onChangeHandler}
+            onInput={this._onInputHandler}
+            placeholder="Enter typeName..."
             type="search"
             value={searchValue}
           />
@@ -30,7 +31,7 @@ class TypeSearch extends React.Component<TypeSearchProps, TypeSearchState> {
     );
   }
 
-  private _onChangeHandler(ev: React.ChangeEvent<HTMLInputElement>) {
+  private _onInputHandler(ev: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ searchValue: ev.target.value }, () => {
       this.props.termSearched(this.state.searchValue);
     });

@@ -2,7 +2,7 @@ import { createSelector } from "reselect";
 import { getSchemaTypes } from "~/selectors";
 import { ObjectMap, ReduxState } from "~/types";
 
-export const getSchemaTypesCacheControl: (state: ReduxState) => ObjectMap = createSelector(
+export const getTypeCacheControls: (state: ReduxState) => ObjectMap = createSelector(
   [getSchemaTypes],
   (schemaTypes: ObjectMap) => {
     const sortedKeys = Object.keys(schemaTypes).sort((a, b) => {

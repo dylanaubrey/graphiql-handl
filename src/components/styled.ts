@@ -37,6 +37,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
+  appearance: none;
   background-color: #f5f5f5;
   background-image: none;
   border: 1px solid #333;
