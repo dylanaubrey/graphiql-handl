@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled, { StyledComponentClass } from "styled-components";
-import { ScrollBar } from "~/components/styled";
+import { Scrollable } from "~/components/styled";
 
-export const TypeCacheControlPanelPage = ScrollBar.extend`
+export const TypeCacheControlPanelPage = Scrollable.extend`
   height: calc(100% - 85px);
   margin-top: 70px;
   overflow-y: hidden;

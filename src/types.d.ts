@@ -4,24 +4,35 @@ import { HandlClientRequestResult } from "handl";
 export type ActionPayloads = CacheEntryAddedPayload | RequestTimedPayload | SchemaTypesReceivedPayload;
 
 export interface ActiveRequestState {
-  dataEntities: string[];
+  dataEntitiesCached: string[];
+  dataEntitiesQueried: string[];
   duration: number;
   handlID: string;
   operation: OperationTypes;
   operationName?: string;
-  queryPaths: string[];
-  responses: string[];
+  queryPathsCached: string[];
+  queryPathsQueried: string[];
+  responsesCached: string[];
+  responsesQueried: string[];
   startTime: number;
 }
 
 export interface CacheEntryAddedPayload {
   cache: CacheTypes;
+  handlID: string;
   key: string;
   operation: OperationTypes;
   operationName: string;
-  requestID: string;
   value: any;
-  [key: string]: any;
+}
+
+export interface CacheEntryQueriedPayload {
+  cache: CacheTypes;
+  handlID: string;
+  key: string;
+  operation: OperationTypes;
+  operationName: string;
+  value: any;
 }
 
 export type CacheTypes = "responses" | "queryPaths" | "dataEntities";

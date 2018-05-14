@@ -59,7 +59,7 @@ export const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-export const ScrollBar = styled.div`
+export const Scrollable = styled.div`
   -webkit-overflow-scrolling: touch;
   transition: background-color 0.2s;
 

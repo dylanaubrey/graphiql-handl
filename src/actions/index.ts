@@ -2,6 +2,7 @@ import { Action, ActionFunctionAny, createActions } from "redux-actions";
 
 import {
   CACHE_ENTRY_ADDED,
+  CACHE_ENTRY_QUERIED,
   FETCH_EXECUTED,
   PARTIAL_COMPILED,
   REQUEST_EXECUTED,
@@ -14,6 +15,7 @@ import {
 
 export const {
   cacheEntryAdded,
+  cacheEntryQueried,
   fetchExecuted,
   partialCompiled,
   requestExecuted,
@@ -24,6 +26,7 @@ export const {
   typeTermSearched,
 }: { [key: string]: ActionFunctionAny<Action<{ data: any }>>;  } = createActions({
   [CACHE_ENTRY_ADDED]: (data) => ({ data }),
+  [CACHE_ENTRY_QUERIED]: (data) => ({ data }),
   [FETCH_EXECUTED]: (data) => ({ data }),
   [PARTIAL_COMPILED]: (data) => ({ data }),
   [REQUEST_EXECUTED]: (data) => ({ data }),

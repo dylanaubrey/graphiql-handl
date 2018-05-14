@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect, DispatchProp } from "react-redux";
+import { connect } from "react-redux";
 
 import {
   InfoBarCell,
@@ -12,31 +12,33 @@ import { InfoBarProps } from "~/components/info-bar/types";
 import { Label } from "~/components/styled";
 import { QUOTE } from "~/constants/misc";
 import { getActiveOperationName } from "~/selectors/active-operation-name";
-import { getActiveDataEntitiesCount } from "~/selectors/active-data-entites-count";
+import { getActiveDataEntitiesCachedCount } from "~/selectors/active-data-entities-cached-count";
 import { getActiveDuration } from "~/selectors/active-duration";
 import { getActiveHandlID } from "~/selectors/active-handl-id";
 import { getActiveOperation } from "~/selectors/active-operation";
-import { getActiveQueryPathsCount } from "~/selectors/active-query-paths-count";
-import { getActiveResponsesCount } from "~/selectors/active-responses-count";
+import { getActiveQueryPathsCachedCount } from "~/selectors/active-query-paths-cached-count";
+import { getActiveResponsesCachedCount } from "~/selectors/active-responses-cached-count";
 import { getActiveStartTime } from "~/selectors/active-start-time";
 import { ReduxState } from "~/types";
+import { getActiveResponsesQueriedCount } from "~/selectors/active-responses-queried-count";
+import { getActiveQueryPathsQueriedCount } from "~/selectors/active-query-paths-queried-count";
+import { getActiveDataEntitiesQueriedCount } from "~/selectors/active-data-entities-queried-count";
 
 export class InfoBar extends React.Component {
-  private static _getEntriesText(count: number): string {
-    return count === 1 ? "entry" : "entries";
-  }
-
   public props: InfoBarProps;
 
   public render(): React.ReactNode {
     const {
-      dataEntities,
+      dataEntitiesCached,
+      dataEntitiesQueried,
       duration,
       handlID,
       operation,
       operationName,
-      queryPaths,
-      responses,
+      queryPathsCached,
+      queryPathsQueried,
+      responsesCached,
+      responsesQueried,
       startTime,
     } = this.props;
 
@@ -74,16 +76,16 @@ export class InfoBar extends React.Component {
           <InfoBarCellValue>{operationName}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="responses">
-          <Label>{"response cache:"}</Label>
-          <InfoBarCellValue>{`${responses} ${InfoBar._getEntriesText(responses)} added`}</InfoBarCellValue>
+          <Label>{"responses cached/queried:"}</Label>
+          <InfoBarCellValue>{`${responsesCached} cached / ${responsesQueried} queried`}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="queryPaths">
-          <Label>{"query path cache:"}</Label>
-          <InfoBarCellValue>{`${queryPaths} ${InfoBar._getEntriesText(queryPaths)} added`}</InfoBarCellValue>
+          <Label>{"query paths cached/queried:"}</Label>
+          <InfoBarCellValue>{`${queryPathsCached} cached / ${queryPathsQueried} queried`}</InfoBarCellValue>
         </InfoBarCell>
         <InfoBarCell key="dataEntities">
-          <Label>{"data entities cache:"}</Label>
-          <InfoBarCellValue>{`${dataEntities} ${InfoBar._getEntriesText(dataEntities)} added`}</InfoBarCellValue>
+          <Label>{"data entities cached/queried:"}</Label>
+          <InfoBarCellValue>{`${dataEntitiesCached} cached / ${dataEntitiesQueried} queried`}</InfoBarCellValue>
         </InfoBarCell>
       </InfoBarTable>
     );
@@ -91,14 +93,17 @@ export class InfoBar extends React.Component {
 }
 
 const mapStateToProps = (state: ReduxState) => ({
-  dataEntities: getActiveDataEntitiesCount(state),
+  dataEntitiesCached: getActiveDataEntitiesCachedCount(state),
+  dataEntitiesQueried: getActiveDataEntitiesQueriedCount(state),
   duration: getActiveDuration(state),
   handlID: getActiveHandlID(state),
   operation: getActiveOperation(state),
   operationName: getActiveOperationName(state),
-  queryPaths: getActiveQueryPathsCount(state),
-  responses: getActiveResponsesCount(state),
+  queryPathsCached: getActiveQueryPathsCachedCount(state),
+  queryPathsQueried: getActiveQueryPathsQueriedCount(state),
+  responsesCached: getActiveResponsesCachedCount(state),
+  responsesQueried: getActiveResponsesQueriedCount(state),
   startTime: getActiveStartTime(state),
 });
 
-export default connect<InfoBarProps, DispatchProp<any>>(mapStateToProps)(InfoBar);
+export default connect<InfoBarProps>(mapStateToProps)(InfoBar);

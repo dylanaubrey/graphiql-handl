@@ -1,5 +1,6 @@
 import {
   CACHE_ENTRY_ADDED,
+  CACHE_ENTRY_QUERIED,
   ClientHandl,
   FETCH_EXECUTED,
   PARTIAL_COMPILED,
@@ -12,6 +13,7 @@ import { Dispatch } from "react-redux";
 
 import {
   cacheEntryAdded,
+  cacheEntryQueried,
   fetchExecuted,
   partialCompiled,
   requestExecuted,
@@ -23,6 +25,9 @@ export default function handlEventListeners(handl: ClientHandl, dispatch: Dispat
   handl
     .on(CACHE_ENTRY_ADDED, (data) => {
       dispatch(cacheEntryAdded(data));
+    })
+    .on(CACHE_ENTRY_QUERIED, (data) => {
+      dispatch(cacheEntryQueried(data));
     })
     .on(FETCH_EXECUTED, (data) => {
       dispatch(fetchExecuted(data));
