@@ -24,7 +24,7 @@ import { getActiveResponsesQueriedCount } from "~/selectors/active-responses-que
 import { getActiveQueryPathsQueriedCount } from "~/selectors/active-query-paths-queried-count";
 import { getActiveDataEntitiesQueriedCount } from "~/selectors/active-data-entities-queried-count";
 
-export class InfoBar extends React.Component {
+class InfoBar extends React.Component {
   public props: InfoBarProps;
 
   public render(): React.ReactNode {

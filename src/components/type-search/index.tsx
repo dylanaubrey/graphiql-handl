@@ -2,13 +2,22 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { typeTermSearched } from "~/actions";
 import { Input, Label } from "~/components/styled";
-import { TypeSearchDispatchToProps, TypeSearchProps, TypeSearchState } from "~/components/type-search/types";
 import { TypeSearchForm, TypeSearchSection } from "~/components/type-search/styled";
+
+import {
+  TypeSearchDispatchToProps,
+  TypeSearchProps,
+  TypeSearchState,
+  TypeSearchStateToProps,
+} from "~/components/type-search/types";
+
+import { getTypeSearchTerm } from "~/selectors/type-search-term";
+import { ReduxState } from "~/types";
 
 class TypeSearch extends React.Component<TypeSearchProps, TypeSearchState> {
   constructor(props: TypeSearchProps) {
     super(props);
-    this.state = { searchValue: props.searchValue || "" };
+    this.state = { searchValue: props.searchValue };
     this._onInputHandler = this._onInputHandler.bind(this);
   }
 
@@ -38,11 +47,15 @@ class TypeSearch extends React.Component<TypeSearchProps, TypeSearchState> {
   }
 }
 
+const mapStateToProps = (state: ReduxState) => ({
+  searchValue: getTypeSearchTerm(state),
+});
+
 const mapDispatchToProps = {
   termSearched: typeTermSearched,
 };
 
-export default connect<undefined, TypeSearchDispatchToProps>(
-  undefined,
+export default connect<TypeSearchStateToProps, TypeSearchDispatchToProps>(
+  mapStateToProps,
   mapDispatchToProps,
 )(TypeSearch);

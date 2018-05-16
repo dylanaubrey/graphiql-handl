@@ -6,8 +6,12 @@ export interface TypeSearchDispatchToProps {
 }
 
 export interface TypeSearchProps {
-  searchValue?: string;
+  searchValue: string;
   termSearched: ActionFunctionAny<Action<{ data: any; }>>;
+}
+
+export interface TypeSearchStateToProps {
+  searchValue: string;
 }
 
 export interface TypeSearchState {
