@@ -1,5 +1,4 @@
-import * as React from "react";
-import styled, { StyledComponentClass } from "styled-components";
+import styled from "styled-components";
 import { Form } from "~/components/styled";
 
 export const TypeSearchForm = Form.extend`

@@ -1,16 +1,22 @@
 import * as React from "react";
 import { Menu, MenuItem } from "~/components/explorer-menu/styled";
 import { ExplorerMenuProps } from "~/components/explorer-menu/types";
-import { TYPE_CACHE_CONTROL } from "~/constants/explorer-panels";
+import { REQUEST_ANALYSIS, TYPE_CACHE_CONTROL } from "~/constants/explorer-panels";
 
-export default class ExplorerMenu extends React.Component {
-  public props: ExplorerMenuProps;
-
+export default class ExplorerMenu extends React.Component<ExplorerMenuProps> {
   public render(): React.ReactNode {
     const { onClick } = this.props;
 
     return (
       <Menu>
+        <MenuItem
+          active={this._isActive(REQUEST_ANALYSIS)}
+          id={REQUEST_ANALYSIS}
+          key={REQUEST_ANALYSIS}
+          onClick={onClick}
+        >
+          {"Request analysis"}
+        </MenuItem>
         <MenuItem
           active={this._isActive(TYPE_CACHE_CONTROL)}
           id={TYPE_CACHE_CONTROL}

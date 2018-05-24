@@ -1,5 +1,4 @@
-import * as React from "react";
-import styled, { StyledComponentClass } from "styled-components";
+import styled from "styled-components";
 
 export const Menu = styled.ul`
   margin: 0;
@@ -12,5 +11,8 @@ export const MenuItem = styled.li<{ active: boolean; }>`
   display: block;
   margin: 0;
   padding: 10px 20px;
-  text-align: center;
+
+  &:hover {
+    background-color: ${({ active }) => active ? "#333" : "#222"};
+  }
 `;

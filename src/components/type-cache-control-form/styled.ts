@@ -1,5 +1,4 @@
-import * as React from "react";
-import { css, StyledComponentClass } from "styled-components";
+import { css } from "styled-components";
 import { Form, IconButton, Input, Label } from "~/components/styled";
 
 const addedTypeListButtonStyles = css`

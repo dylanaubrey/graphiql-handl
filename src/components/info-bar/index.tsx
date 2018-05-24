@@ -10,7 +10,7 @@ import {
 
 import { InfoBarProps } from "~/components/info-bar/types";
 import { Label } from "~/components/styled";
-import { QUOTE } from "~/constants/misc";
+import { FULLEST_USE } from "~/constants/quotes";
 import { getActiveOperationName } from "~/selectors/active-operation-name";
 import { getActiveDataEntitiesCachedCount } from "~/selectors/active-data-entities-cached-count";
 import { getActiveDuration } from "~/selectors/active-duration";
@@ -47,7 +47,7 @@ class InfoBar extends React.Component {
         <InfoBarTable>
           <InfoBarCell>
             <Label>{"Handl:"}</Label>
-            <InfoBarQuote>{QUOTE}</InfoBarQuote>
+            <InfoBarQuote>{FULLEST_USE}</InfoBarQuote>
           </InfoBarCell>
         </InfoBarTable>
       );

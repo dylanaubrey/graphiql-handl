@@ -36,7 +36,7 @@ export interface CacheEntryQueriedPayload {
 }
 
 export type CacheTypes = "responses" | "queryPaths" | "dataEntities";
-export type ExplorerPanels = "typeCacheControl";
+export type ExplorerPanels = "requestAnalysis" | "typeCacheControl";
 
 export interface FetcherArgs {
   query: string;

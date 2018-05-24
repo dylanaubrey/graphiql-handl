@@ -1,6 +1,5 @@
 import { darken } from "polished";
-import * as React from "react";
-import styled, { StyledComponentClass } from "styled-components";
+import styled from "styled-components";
 
 export const Button = styled.button`
   align-items: center;
@@ -79,4 +78,17 @@ export const Scrollable = styled.div`
       background-color: ${darken(0.05, "#666")};
     }
   }
+`;
+
+export const PanelMain = Scrollable.extend`
+  height: calc(100% - 85px);
+  margin-top: 70px;
+  overflow-y: hidden;
+  overflow-y: scroll;
+`;
+
+export const PanelSection = styled.div`
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
 `;

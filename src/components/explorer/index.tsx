@@ -3,16 +3,14 @@ import { ExplorerMain, ExplorerSection, ExplorerSidebar } from "~/components/exp
 import { ExplorerState } from "~/components/explorer/types";
 import ExplorerMenu from "~/components/explorer-menu";
 import ExplorerPanel from "~/components/explorer-panel";
-import { TYPE_CACHE_CONTROL } from "~/constants/explorer-panels";
-import { ObjectMap } from "~/types";
+import { REQUEST_ANALYSIS } from "~/constants/explorer-panels";
+import { ExplorerPanels, ObjectMap } from "~/types";
 
-export default class Explorer extends React.Component {
-  public state: ExplorerState;
-
+export default class Explorer extends React.Component<ObjectMap, ExplorerState> {
   constructor(props: ObjectMap) {
     super(props);
     this._menuChangeHandler = this._menuChangeHandler.bind(this);
-    this.state = { activePanel: TYPE_CACHE_CONTROL };
+    this.state = { activePanel: REQUEST_ANALYSIS };
   }
 
   public render(): React.ReactNode {
@@ -32,6 +30,6 @@ export default class Explorer extends React.Component {
   }
 
   private _menuChangeHandler(ev: React.MouseEvent<HTMLLIElement>) {
-    this.setState({ activePanel: ev.currentTarget.id });
+    this.setState({ activePanel: ev.currentTarget.id as ExplorerPanels });
   }
 }
