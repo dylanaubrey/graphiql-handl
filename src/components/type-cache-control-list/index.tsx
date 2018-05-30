@@ -13,7 +13,7 @@ import { getSearchedEmptyTypeCacheControls } from "~/selectors/searched-empty-ty
 import { ReduxState } from "~/types";
 
 class TypeCacheControlList extends React.Component<TypeCacheControlListProps> {
-  public render(): React.ReactNode {
+  public render(): JSX.Element {
     const { typesAdded, typesEmpty, listType } = this.props;
     const types = listType === "added" ? typesAdded : typesEmpty;
 

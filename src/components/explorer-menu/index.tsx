@@ -1,14 +1,15 @@
 import * as React from "react";
-import { Menu, MenuItem } from "~/components/explorer-menu/styled";
+import { MenuItem } from "~/components/explorer-menu/styled";
 import { ExplorerMenuProps } from "~/components/explorer-menu/types";
+import { List } from "~/components/styled";
 import { REQUEST_ANALYSIS, TYPE_CACHE_CONTROL } from "~/constants/explorer-panels";
 
 export default class ExplorerMenu extends React.Component<ExplorerMenuProps> {
-  public render(): React.ReactNode {
+  public render(): JSX.Element {
     const { onClick } = this.props;
 
     return (
-      <Menu>
+      <List>
         <MenuItem
           active={this._isActive(REQUEST_ANALYSIS)}
           id={REQUEST_ANALYSIS}
@@ -25,7 +26,7 @@ export default class ExplorerMenu extends React.Component<ExplorerMenuProps> {
         >
           {"Type cache control"}
         </MenuItem>
-      </Menu>
+      </List>
     );
   }
 

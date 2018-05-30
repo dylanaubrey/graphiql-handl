@@ -11,23 +11,23 @@ import {
 import { InfoBarProps } from "~/components/info-bar/types";
 import { Label } from "~/components/styled";
 import { FULLEST_USE } from "~/constants/quotes";
-import { getActiveOperationName } from "~/selectors/active-operation-name";
 import { getActiveDataEntitiesCachedCount } from "~/selectors/active-data-entities-cached-count";
+import { getActiveDataEntitiesQueriedCount } from "~/selectors/active-data-entities-queried-count";
 import { getActiveDuration } from "~/selectors/active-duration";
 import { getActiveHandlID } from "~/selectors/active-handl-id";
 import { getActiveOperation } from "~/selectors/active-operation";
+import { getActiveOperationName } from "~/selectors/active-operation-name";
 import { getActiveQueryPathsCachedCount } from "~/selectors/active-query-paths-cached-count";
+import { getActiveQueryPathsQueriedCount } from "~/selectors/active-query-paths-queried-count";
 import { getActiveResponsesCachedCount } from "~/selectors/active-responses-cached-count";
+import { getActiveResponsesQueriedCount } from "~/selectors/active-responses-queried-count";
 import { getActiveStartTime } from "~/selectors/active-start-time";
 import { ReduxState } from "~/types";
-import { getActiveResponsesQueriedCount } from "~/selectors/active-responses-queried-count";
-import { getActiveQueryPathsQueriedCount } from "~/selectors/active-query-paths-queried-count";
-import { getActiveDataEntitiesQueriedCount } from "~/selectors/active-data-entities-queried-count";
 
 class InfoBar extends React.Component {
   public props: InfoBarProps;
 
-  public render(): React.ReactNode {
+  public render(): JSX.Element {
     const {
       dataEntitiesCached,
       dataEntitiesQueried,

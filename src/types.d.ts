@@ -74,6 +74,8 @@ export interface ReduxState {
   searchTerms: SearchTermsState;
 }
 
+export type RequestAnalysisSections = "retrievedFromCache" | "requestedFromServer" | "cachedByClient";
+
 export interface RequestTimedPayload {
   duration: number;
   endTime: number;

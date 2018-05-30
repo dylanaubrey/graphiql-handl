@@ -1,8 +1,8 @@
 import * as GraphiQL from "graphiql";
 import * as React from "react";
-import HandlExplorer from "~/components/handl-explorer";
 import { GraphiQLMask } from "~/components/graphiql-handl/styled";
 import { GraphiQLProps, GraphiQLState } from "~/components/graphiql-handl/types";
+import HandlExplorer from "~/components/handl-explorer";
 
 export default class GraphiQLHandl extends React.Component {
   public props: GraphiQLProps;
@@ -14,7 +14,7 @@ export default class GraphiQLHandl extends React.Component {
     this._toolbarClickHandler = this._toolbarClickHandler.bind(this);
   }
 
-  public render(): React.ReactNode {
+  public render(): JSX.Element {
     return (
       <div className="graphiql-handl">
         <HandlExplorer

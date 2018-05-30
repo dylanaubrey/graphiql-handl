@@ -23,6 +23,7 @@ export const InfoBarQuote = InfoBarCellValue.extend`
     typing 10s steps(116, end),
     blink-caret 0.75s step-end infinite;
   border-right: 2px solid #fff;
+  display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   white-space: nowrap;

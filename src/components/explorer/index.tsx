@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ExplorerMain, ExplorerSection, ExplorerSidebar } from "~/components/explorer/styled";
-import { ExplorerState } from "~/components/explorer/types";
 import ExplorerMenu from "~/components/explorer-menu";
 import ExplorerPanel from "~/components/explorer-panel";
+import { ExplorerMain, ExplorerSection, ExplorerSidebar } from "~/components/explorer/styled";
+import { ExplorerState } from "~/components/explorer/types";
 import { REQUEST_ANALYSIS } from "~/constants/explorer-panels";
 import { ExplorerPanels, ObjectMap } from "~/types";
 
@@ -13,7 +13,7 @@ export default class Explorer extends React.Component<ObjectMap, ExplorerState> 
     this.state = { activePanel: REQUEST_ANALYSIS };
   }
 
-  public render(): React.ReactNode {
+  public render(): JSX.Element {
     return (
       <ExplorerSection>
         <ExplorerSidebar>

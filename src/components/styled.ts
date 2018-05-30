@@ -1,10 +1,20 @@
 import { darken } from "polished";
 import styled from "styled-components";
 
-export const Button = styled.button`
+export const Base = styled.div`
+  border: 0;
+  display: block;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  position: relative;
+`;
+
+export const List = Base.withComponent("ul");
+
+export const Button = Base.withComponent("button").extend`
   align-items: center;
   background-color: transparent;
-  border: none;
   border-radius: none;
   cursor: pointer;
   display: table;
@@ -12,9 +22,7 @@ export const Button = styled.button`
   height: 35px;
   justify-content: center;
   min-width: 35px;
-  outline: none;
   padding: 0 10px;
-  position: relative;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -31,34 +39,29 @@ export const IconButton = Button.extend`
   width: 35px;
 `;
 
-export const Form = styled.form`
-  display: block;
-`;
+export const Form = Base.withComponent("form");
 
-export const Input = styled.input`
+export const Input = Base.withComponent("input").extend`
   appearance: none;
   background-color: #f5f5f5;
   background-image: none;
   border: 1px solid #333;
   border-radius: 0;
   color: #333;
-  display: block;
   font-size: 15px;
   height: 35px;
-  outline: 0;
   padding: 0 10px;
   width: 100%;
 `;
 
-export const Label = styled.label`
+export const Label = Base.withComponent("label").extend`
   color: #ccc;
   cursor: pointer;
-  display: block;
   font-size: 12px;
   margin-bottom: 5px;
 `;
 
-export const Scrollable = styled.div`
+export const Scrollable = Base.extend`
   -webkit-overflow-scrolling: touch;
   transition: background-color 0.2s;
 
@@ -87,7 +90,7 @@ export const PanelMain = Scrollable.extend`
   overflow-y: scroll;
 `;
 
-export const PanelSection = styled.div`
+export const PanelSection = Base.extend`
   display: inline-block;
   vertical-align: top;
   width: 33%;

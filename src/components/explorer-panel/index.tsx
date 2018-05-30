@@ -9,9 +9,7 @@ const panels: ExplorerPanelsMap = {
   [TYPE_CACHE_CONTROL]: TypeCacheControlPanel,
 };
 
-export default class ExplorerPanel extends React.Component<ExplorerPanelProps> {
-  public render(): React.ReactNode {
-    const Panel = panels[this.props.activePanel];
-    return <Panel />;
-  }
+export default function ExplorerPanel(props: ExplorerPanelProps): JSX.Element {
+  const Panel = panels[props.activePanel];
+  return <Panel />;
 }

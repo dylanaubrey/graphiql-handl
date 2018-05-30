@@ -1,12 +1,12 @@
 import * as React from "react";
+import { StyledSVG } from "~/components/icon/styled";
 import { symbols } from "~/components/icon/symbols";
 import { IconProps } from "~/components/icon/types";
-import { StyledSVG } from "~/components/icon/styled";
 
 export default class Icon extends React.Component {
   public props: IconProps;
 
-  public render(): React.ReactNode {
+  public render(): JSX.Element {
     const { height, symbol, width } = this.props;
 
     return (

@@ -3,7 +3,7 @@ import { PanelMain, PanelSection } from "~/components/styled";
 import TypeCacheControlList from "~/components/type-cache-control-list";
 import TypeSearch from "~/components/type-search";
 
-export default function TypeCacheControlPanel() {
+export default function TypeCacheControlPanel(): JSX.Element {
   return (
     <PanelMain>
       <TypeSearch />

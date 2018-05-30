@@ -1,5 +1,6 @@
 import { css } from "styled-components";
 import { Form, IconButton, Input, Label } from "~/components/styled";
+import { ACTIVE, INACTIVE } from "~/constants/colors";
 
 const addedTypeListButtonStyles = css`
   background-color: transparent;
@@ -26,24 +27,14 @@ export const TypeListForm = Form.extend<{ listType: "added" | "empty" }>`
 `;
 
 export const TypeListIconButton = IconButton.extend<{ listType: "added" | "empty" }>`
-  background-color: #333;
+  background-color: ${ACTIVE};
   color: #eee;
   transition: background-color 0.3s, color 0.3s;
   vertical-align: top;
 
   &[disabled],
   :disabled {
-    color: #666;
-  }
-
-  &:focus,
-  &:hover {
-    background-color: #555;
-
-    &[disabled],
-    &:disabled {
-      background-color: #333;
-    }
+    color: ${INACTIVE};
   }
 
   ${({ listType }) => listType === "added" && addedTypeListButtonStyles}
