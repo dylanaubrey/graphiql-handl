@@ -1,7 +1,7 @@
 import * as React from "react";
 import RequestAnalysisMenu from "~/components/request-analysis-menu";
 import RequestAnalysisSection from "~/components/request-analysis-section";
-import { PanelMain, PanelSection } from "~/components/styled";
+import { PanelMain } from "~/components/styled";
 import { RequestAnalysisPanelState } from "~/components/type-cache-control-panel/types";
 import { RETRIEVED_FROM_CACHE } from "~/constants/request-analysis-sections";
 import { ObjectMap, RequestAnalysisSections } from "~/types";
@@ -20,9 +20,7 @@ export default class RequestAnalysisPanel extends React.Component<ObjectMap, Req
           activeMenuItem={this.state.activeSection}
           onClick={this._menuChangeHandler}
         />
-        <PanelSection>
-          <RequestAnalysisSection activeSection={this.state.activeSection} />
-        </PanelSection>
+        <RequestAnalysisSection activeSection={this.state.activeSection} />
       </PanelMain>
     );
   }
